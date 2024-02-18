@@ -1,0 +1,154 @@
+main{
+    //imagen de intro despues del header
+    .content_img_intro{
+        max-width: 100%;
+        height: 40.625rem;
+        background-image: url(../assets/img/fondo.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .section_categorias{
+        .cards_categorias{
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+            .card{
+                margin: 6.25rem;
+                a{
+                    text-decoration: none;
+                    color: $color-text-2;
+                    .titulo_card{
+                        margin: .625rem;
+                        text-align: center;
+                        font-family: Montserrat;
+                        font-weight: 300;
+                    }
+                    .img-content{
+                        width: 12.5rem;
+                        height: 12.5rem;
+                        overflow: hidden;
+                        img{
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                            border-radius: 50%;
+                            box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.4);
+                        }
+                    }
+                    
+                }
+            }
+        }
+    }
+    .list_productos{
+        padding: 0rem 3.125rem;
+        h3{
+            text-align: center;
+            font-family: Montserrat;
+            font-weight: 600;
+            font-size: 3.125rem;
+        }
+        .content_producto{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .productos{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                width: 100%;
+                margin: 100px;
+                padding: 10px;
+                a{
+                    margin-bottom: 50px;
+                    text-decoration: none;
+                    .sale{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        margin-left: 9.375rem;
+                        position: relative;
+                        p{
+                            margin-top: 20px;
+                            font-family: montserrat;
+                            font-size: .625rem;
+                            font-weight: bold;
+                            color: $color-text-3;
+                            position: absolute;
+                            z-index: 2;
+                        }
+                        img{
+                            width: 3.125rem;
+                            height: 3.125rem;
+                            position: absolute;
+                            z-index: 1;
+                        }
+                    }
+                    .cuerpo{                        
+                        width: 200px;
+                        height: 200px;
+                        overflow: hidden;
+                        img{
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+                    }
+                    .titulo{
+                        h3{
+                            text-align: left;
+                            font-family: arimo;
+                            font-size: 20px;
+                            color: $color-text-3;
+                        }
+                    }
+                    .precio_descuento{
+                        display: flex;
+                        align-items: center;
+                        p{
+                            font-family: montserrat;
+                            font-size: 1rem;
+                            font-weight: 600;
+                            color: rgba(0,0,0,.5);
+                        }    
+                        span{
+                            margin-left: 10px;
+                            padding: .25rem;
+                            border-radius: .125rem;
+                            font-family: arimo;
+                            font-size: .75rem;
+                            color: $color-text-1;
+                            background-color: red;
+                        }                
+                    }
+                    .precio{
+                        margin: .3125rem 0rem .625rem 0rem;
+                        p{
+                            font-family: montserrat;
+                            font-size: .75rem;
+                            font-weight: 600;
+                            color: rgba(0,0,0,.5);
+                            text-decoration: line-through;
+                        }
+                    }
+                    .btnAdd{
+                        padding: 5px 10px;
+                        font-family: Montserrat;
+                        font-size: 1rem;
+                        font-weight: 600;
+                        text-decoration: none;
+                        color: $color-text-3;
+                        background-color: yellow;
+                        border-style: none;
+                        border-radius: .3125rem;
+                    }
+                    .btnAdd:hover{
+                        cursor: pointer;
+                        transition: 0.2s;
+                        transform: scale(1.05);
+                    }
+                }
+            }
+        }
+    }
+}

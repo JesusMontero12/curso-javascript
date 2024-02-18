@@ -1,0 +1,16 @@
+/*-----Enlace carpeta utilities-----*/
+/*Variables, mixins, funciones*/
+@import "./utilities/variables";
+@import "./utilities/mixins";
+
+/*-----Enlaces carpeta Base-----*/
+/*tipografias, reset*/
+@import "./base/reset";
+@import "./base/typography";
+
+/*-----Enlaces carpeta layout-----*/
+/*index: header, main, footer*/
+@import "./layout/header";
+@import "./layout/main";
+/*bag:main*/
+@import "./layout/bag";

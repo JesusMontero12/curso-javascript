@@ -1,0 +1,87 @@
+header{
+    display: flex;
+    flex-direction: column;
+    .content_header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .content_logo{
+            margin: .3125rem .625rem;
+            .logo{
+                color: $color-text-2;
+                font-family: Montserrat;
+                font-size: 2.5rem;
+            }
+        }
+        .content_search{
+            img{
+                width: 1.5625rem;
+                height: 1.5625rem;
+                position: absolute;
+                margin: .5rem;
+            }
+            input{
+                width: 31.25rem;
+                height: 1.875rem;
+                padding: 1.25rem 1.25rem 1.25rem 2.5rem;
+                outline: none;
+                border: 1px solid #454545;
+                font-family: Montserrat;
+                font-size: .9375rem;
+                
+            }
+        }
+        nav{
+            margin-right: 1.25rem;
+            .nav_bar{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                li{
+                    padding: .625rem;
+                    list-style: none;
+                    a{
+                        text-decoration: none;
+                        .burbuja{
+                            position: absolute;
+                            margin: -12px 0rem 0rem 14px;
+                            width: 20px;
+                            height: 20px;
+                            font-family: montserrat;
+                            font-size: 10px;
+                            font-weight: 900;
+                            text-align: center;
+                            color: $bg-1;
+                            background-color: red;
+                            border: 2px solid $bg-1;
+                            border-radius: 50%;
+                            
+                        }    
+                    }
+                }
+            }
+        }
+    }
+    .content_cat{
+        .categorias{
+            display: flex;
+            justify-content: center;
+            li{
+                margin:.3125rem;
+                padding: .3125rem;
+                list-style: none;
+                font-family: Montserrat;
+                font-size: 1rem;
+                font-weight: 300;
+                a{
+                    color: $color-text-2;
+                    text-decoration: none;
+                }
+                a:hover{
+                    font-size: 1.125rem;
+                    transition: .5s;
+                }
+            }
+        }
+    }
+}

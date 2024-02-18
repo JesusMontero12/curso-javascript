@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vertor | Moda a tu alcance</title>
+    <link rel="stylesheet" href="./css/estilos.css">
+</head>
+<body>
+    <header>
+        <div class="content_header">
+            <div class="content_logo">
+                <h1 class="logo">Vector</h1>
+            </div>
+            <div class="content_search">
+                <img src="./assets/icons/search.png" alt="icono de lupa">
+                <input type="text" placeholder="Buscar">
+            </div>
+            <nav>
+                <ul class="nav_bar">
+                    <li><a href=""><img src="./assets/icons/notificacion.png" alt="icono de notificaciones"></a></li>
+                    <li><a href="./pages/login.html"><img src="./assets/icons/user.png" alt="icono de usuario"></a></li>
+                    <li><a href="./pages/bag.html" id="content-burbuja"><img src="./assets/icons/bag.png" alt="icono de bolsa de compras"></a></li>
+                    <li><a href="./pages/favoritos.html"><img src="./assets/icons/heart.png" alt="icono de corazon"></a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="content_cat">
+            <ul class="categorias">
+                <li><a href="">Camisas</a></li>
+                <li><a href="">Pantalones</a></li>
+                <li><a href="">Zapatos</a></li>
+                <li><a href="">Vestidos</a></li>
+                <li><a href="">Bermudas</a></li>
+                <li><a href="">Ropa Interior</a></li>
+                <li><a href="">Calcetines</a></li>
+                <li><a href="">Accesorios</a></li>
+                <li><a href="">Joyas</a></li>
+                <li><a href="">Chaquetas</a></li>
+                <li><a href="">Tops</a></li>
+                <li><a href="">Blusas</a></li>
+                <li><a href="">Blazer</a></li>
+                <li><a href="">Ropa para dormir</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <div class="content_img_intro"></div>
+
+        <section class="section_categorias">
+            <!-- Contenedor de categorias -->
+            <div class="cards_categorias">
+                <!-- Categoria hombre -->
+                <div class="card">
+                    <a href="">
+                        <div class="img-content">
+                            <img src="./assets/img/img-Cat/categoria-hombre.jpg" alt="">
+                        </div>
+                        <h2 class="titulo_card">Hombre</h2>
+                    </a>
+                </div>
+                <!-- Categoria mujer -->
+                <div class="card">
+                    <a href="">
+                        <div class="img-content">
+                            <img src="./assets/img/img-Cat/categoria-mujer.jpg" alt="">
+                        </div>
+                        <h2 class="titulo_card">Mujer</h2>
+                    </a>
+                </div>
+                <!-- Categoria Niños -->
+                <div class="card">
+                    <a href="">
+                        <div class="img-content">
+                            <img src="./assets/img/img-Cat/categoria-niño.jpg" alt="">
+                        </div>
+                        <h2 class="titulo_card">Niño y niña</h2>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="list_productos">
+            <h3>Lo mas Vendido</h3>
+            <div class="content_producto">
+                <div class="productos" id="productos">
+                    <!-- Aqui se agregan los productos de manera dinamica -->
+                </div>             
+            </div>
+        </section>
+    </main>
+
+    <footer>
+
+    </footer>
+    <script type="module" src="./js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
