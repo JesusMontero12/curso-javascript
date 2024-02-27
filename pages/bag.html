@@ -1,64 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vector | Mi Bolsa de compras</title>
-    <link rel="stylesheet" href="../css/estilos.css">
-</head>
-<body>
+    <link rel="stylesheet" href="../css/estilos.css" />
+  </head>
+  <body>
     <header>
-        <div class="content_header">
-            <div class="content_logo">
-                <h1 class="logo">Vector</h1>
-            </div>
-            <div class="content_search">
-                <img src="../assets/icons/search.png" alt="icono de lupa">
-                <input type="text" placeholder="Buscar">
-            </div>
-            <nav>
-                <ul class="nav_bar">
-                    <li><a href=""><img src="../assets/icons/notificacion.png" alt="icono de notificaciones"></a></li>
-                    <li><a href="./login.html"><img src="../assets/icons/user.png" alt="icono de usuario"></a></li>
-                    <li><a href="./bag.html" id="content-burbuja"><img src="../assets/icons/bag.png" alt="icono de bolsa de compras"></a></li>
-                    <li><a href="./favoritos.html"><img src="../assets/icons/heart.png" alt="icono de corazon"></a></li>
-                </ul>
-            </nav>
+      <div class="content_header">
+        <div class="content_logo">
+          <h1 class="logo">Vector</h1>
         </div>
-        <div class="content_cat">
-            <ul class="categorias">
-                <li><a href="">Camisas</a></li>
-                <li><a href="">Pantalones</a></li>
-                <li><a href="">Zapatos</a></li>
-                <li><a href="">Vestidos</a></li>
-                <li><a href="">Bermudas</a></li>
-                <li><a href="">Ropa Interior</a></li>
-                <li><a href="">Calcetines</a></li>
-                <li><a href="">Accesorios</a></li>
-                <li><a href="">Joyas</a></li>
-                <li><a href="">Chaquetas</a></li>
-                <li><a href="">Tops</a></li>
-                <li><a href="">Blusas</a></li>
-                <li><a href="">Blazer</a></li>
-                <li><a href="">Ropa para dormir</a></li>
-            </ul>
+        <div class="content_search">
+          <img src="../assets/icons/search.png" alt="icono de lupa" />
+          <input type="text" placeholder="Buscar" />
         </div>
+        <nav>
+          <ul class="nav_bar">
+            <li>
+              <a href=""
+                ><img
+                  src="../assets/icons/notificacion.png"
+                  alt="icono de notificaciones"
+              /></a>
+            </li>
+            <li>
+              <a href="./login.html"
+                ><img src="../assets/icons/user.png" alt="icono de usuario"
+              /></a>
+            </li>
+            <li>
+              <a href="./bag.html" id="content-burbuja"
+                ><img
+                  src="../assets/icons/bag.png"
+                  alt="icono de bolsa de compras"
+              /></a>
+            </li>
+            <li>
+              <a href="./favoritos.html"
+                ><img src="../assets/icons/heart.png" alt="icono de corazon"
+              /></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="content_cat">
+        <ul class="categorias">
+          <li><a href="">Camisas</a></li>
+          <li><a href="">Pantalones</a></li>
+          <li><a href="">Zapatos</a></li>
+          <li><a href="">Vestidos</a></li>
+          <li><a href="">Bermudas</a></li>
+          <li><a href="">Ropa Interior</a></li>
+          <li><a href="">Calcetines</a></li>
+          <li><a href="">Accesorios</a></li>
+          <li><a href="">Joyas</a></li>
+          <li><a href="">Chaquetas</a></li>
+          <li><a href="">Tops</a></li>
+          <li><a href="">Blusas</a></li>
+          <li><a href="">Blazer</a></li>
+          <li><a href="">Ropa para dormir</a></li>
+        </ul>
+      </div>
     </header>
 
     <main>
-        <div class="mi_bolsa">
-            <h2>Mi bolsa</h2>
-            <div class="content_productos">
-                <div class="productos" id="productos">
-                    <!-- Aqui se agregan los productos de manera dinamica -->
-                </div>  
-            </div>
+      <div class="mi_bolsa">
+        <h2>Mi bolsa</h2>
+        <div class="content_productos" id="content_productos">
+          <div class="productos" id="productos">
+            <!-- Aqui se agregan los productos de manera dinamica -->
+          </div>
         </div>
+      </div>
+
+      <div class="formularioEnvioPago" id="modal">
+        <div class="formulario_content">
+          <span class="cerrar" id="cerrar">&times;</span>
+          <h4>Formulario de pago</h4>
+          <form action="">
+            <section class="section_contacto">
+              <h5>1. Información de contacto</h5>
+              <p>Usaremos este correo electrónico para enviarte detalles y actualizaciones relacionadas con tu pedido.</p>
+              <input type="email" class="correo" id="correo" placeholder="Correo electrónico" required>
+              <input type="tel" name="numeroTelefono" id="numeroTelefono" placeholder="Teléfono Ejem. +56 9 xxxx xxxx" required>
+            </section>
+            <section class="section_direccion">
+              <h5>2. Dirección de envío</h5>
+              <p>Introduce la dirección a dónde quieras que se entregue tu pedido.</p>
+              <div class="nombreApellidos">
+                <input type="text" name="nombres" class="nombres" id="nombres" placeholder="Nombres" required>
+                <input type="text" name="apellidos" class="apellidos" id="apellidos" placeholder="Apellidos" required>
+              </div>
+              <select name="pais" id="pais">
+                <option value="chile">CHILE</option>
+              </select>
+              <select name="region" id="region">
+                <option value="">ANTOFAGASTA</option>
+                <option value="">ARICA Y PARINACOTA</option>
+                <option value="">ATACAMA</option>
+                <option value="">AYSÉN DEL GRAL. CARLOS IBÁÑEZ DEL CAMPO</option>
+                <option value="">BIOBÍO</option>
+                <option value="">COQUIMBO</option>
+                <option value="">LA ARAUCANÍA</option>
+                <option value="">LIBERTADOR GENERAL BERNARDO O'HIGGINS</option>
+                <option value="">LOS LAGOS</option>
+                <option value="">LOS RÍOS</option>
+                <option value="">MAGALLANES Y DE LA ANTÁRTICA CHILENA</option>
+                <option value="">MAULE</option>
+                <option value="">METROPOLITANA DE SANTIAGO</option>
+                <option value="">ÑIBLE</option>
+                <option value="">TARAPACÁ</option>
+                <option value="">VALPARAISO</option>
+              </select>
+              <input type="text" name="comuna" class="comuna" id="comuna" placeholder="Comuna" required>
+              <input type="text" name="direccion" class="direccion" id="direccion" placeholder="Ingresa tu dirección" required>
+              <input type="text" name="numeroDireccion" class="numeroDireccion" id="numeroDireccion" placeholder="Ingresa el numero de dirección" required>
+              <input type="text" name="numeroCasa" class="numeroCasa" id="numeroCasa" placeholder="Ejem. Casa 3, Dpto 101. (opcional)">
+            </section>
+            <section class="section_envio">
+              <h5>3. Opciones de envío</h5>
+              <fieldset>
+                <legend>Selecciona como quieres recibir tu pedido</legend>
+              
+                <div class="checkEnvio">
+                  <input type="radio" id="retiro" name="opcionEnvio" value="retiro" checked>
+                  <label for="retiro">Retiro en tienda.</label>
+                </div>
+              
+                <div class="checkEnvio">
+                  <input type="radio" id="envio" name="opcionEnvio" value="envio">
+                  <label for="envio">Envio Nacional</label>
+                </div>
+              </fieldset>
+            </section>
+            <section class="section_pago">
+              <h5>4. Opciones de pago</h5>
+              <fieldset>
+                <legend>Selecciona el metodo de pago</legend>
+  
+                <div class="checkPago">
+                  <input type="radio" id="tarjeta" name="opcionPago" value="tarjeta" checked>
+                  <label for="tarjeta">Tarjeta de débito/crédito.</label>
+                </div>
+                <div class="checkPago">
+                  <input type="radio" id="transferencia" name="opcionPago" value="transferencia">
+                  <label for="transferencia">Transferencia bancaria.</label>
+                </div>
+              
+                <div class="checkPago">
+                  <input type="radio" id="mercadoPago" name="opcionPago" value="mercadoPago">
+                  <label for="mercadoPago">Mercado Pago.</label>
+                </div>
+              
+                <div class="checkPago">
+                  <input type="radio" id="contraEntrega" name="opcionPago" value="contraEntrega">
+                  <label for="contraEntrega">Contra entrega</label>
+                </div>              
+              </fieldset>
+              <label for="checknota" class="AggNota">
+                <div>
+                  <input type="checkbox" id="checknota">
+                  <span>Añade una nota a tu pedido</span>
+                </div>
+                <textarea cols="30" rows="10" id="textNota" placeholder="Escribe aqui la nota que desee agregar para tu pedido"></textarea>
+              </label>
+              <div class="finalizarPago">
+                <input type="checkbox" id="checkTerminosCondiciones">
+                <label for="checkTerminosCondiciones">Al proceder con tu compra aceptas nuestros <a href="">Términos y condiciones</a> y <a href="">Política de privacidad</a>.</p>    
+              </div>
+            </section>
+            <section class="section_pagar">
+              <input type="submit" value="Pagar">
+            </section>
+          </form>
+        </div>
+      </div>
     </main>
-
-    <footer>
-
-    </footer>
-    <script src="../js/bag.js"></script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type ="module" src="../js/bag.js"></script>    
+  </body>
 </html>

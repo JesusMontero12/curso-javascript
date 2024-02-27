@@ -1,5 +1,5 @@
 //Agrega burbuja con el numero de productos agregado a la bolsa
-function burbujaBag() {
+export function burbujaBag() {
      //-----Verifica si el producto ya está en localStorage
     const productoBolsa = JSON.parse(localStorage.getItem("productos")) || [];
     let burbujaBag = document.getElementById("content-burbuja");
@@ -11,5 +11,3 @@ function burbujaBag() {
       burbujaBag.appendChild(burbuja);
     }
   }
-  
-  export default burbujaBag;

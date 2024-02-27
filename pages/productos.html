@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vector | Moda a tu alcance</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body>
+    <header>
+        <div class="content_header">
+          <div class="content_logo">
+            <h1 class="logo">Vector</h1>
+          </div>
+          <div class="content_search">
+            <img src="../assets/icons/search.png" alt="icono de lupa" />
+            <input type="text" placeholder="Buscar" />
+          </div>
+          <nav>
+            <ul class="nav_bar">
+              <li>
+                <a href=""
+                  ><img
+                    src="../assets/icons/notificacion.png"
+                    alt="icono de notificaciones"
+                /></a>
+              </li>
+              <li>
+                <a href="./login.html"
+                  ><img src="../assets/icons/user.png" alt="icono de usuario"
+                /></a>
+              </li>
+              <li>
+                <a href="./bag.html" id="content-burbuja"
+                  ><img
+                    src="../assets/icons/bag.png"
+                    alt="icono de bolsa de compras"
+                /></a>
+              </li>
+              <li>
+                <a href="./favoritos.html"
+                  ><img src="../assets/icons/heart.png" alt="icono de corazon"
+                /></a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="content_cat">
+          <ul class="categorias">
+            <li><a href="">Camisas</a></li>
+            <li><a href="">Pantalones</a></li>
+            <li><a href="">Zapatos</a></li>
+            <li><a href="">Vestidos</a></li>
+            <li><a href="">Bermudas</a></li>
+            <li><a href="">Ropa Interior</a></li>
+            <li><a href="">Calcetines</a></li>
+            <li><a href="">Accesorios</a></li>
+            <li><a href="">Joyas</a></li>
+            <li><a href="">Chaquetas</a></li>
+            <li><a href="">Tops</a></li>
+            <li><a href="">Blusas</a></li>
+            <li><a href="">Blazer</a></li>
+            <li><a href="">Ropa para dormir</a></li>
+          </ul>
+        </div>
+    </header>
+    <main>
+        <div class="grid_content-product">
+            <section class="content_filtros">
+              <div class="filtros">
+                <h2>Filtros</h2>
+                <div class="container_categorias">
+                  <h3>Categoría<span>-</span></h3>
+                  <div class="content_categorias">
+                    <div class="categoria">
+                      <input id="ropaHombre" type="checkbox">
+                      <label for="ropaHombre">Ropa de hombre</label>
+                    </div>
+                    <div class="categoria">
+                      <input id="ropaMujer" type="checkbox">
+                      <label for="ropaMujer">Ropa de mujer</label>
+                    </div>
+                    <div class="categoria">
+                      <input id="ropaNino" type="checkbox">
+                      <label for="ropaNino">Ropa de niños</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="container_ajustes">
+                  <h3>Tipo De Ajuste<span>-</span></h3>
+                  <div class="content-ajustes">
+                    <div class="ajuste">
+                      <input id="regular" type="checkbox">
+                      <label for="regular">Regular</label>
+                    </div>
+                    <div class="ajuste">
+                      <input id="oversized" type="checkbox">
+                      <label for="oversized">Oversized</label>
+                    </div>
+                    <div class="ajuste">
+                      <input id="suelto" type="checkbox">
+                      <label for="suelto">Suelto</label>
+                    </div>
+                    <div class="ajuste">
+                      <input id="ajustado" type="checkbox">
+                      <label for="ajustado">Ajustado</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="container_estilo">
+                  <h3>Estilo<span>-</span></h3>
+                  <div class="content-estilo">
+                    <div class="estilo">
+                      <input id="casual" type="checkbox">
+                      <label for="casual">Casual</label>
+                    </div>
+                    <div class="estilo">
+                      <input id="calle" type="checkbox">
+                      <label for="calle">Calle</label>
+                    </div>
+                    <div class="estilo">
+                      <input id="trabajo" type="checkbox">
+                      <label for="trabajo">Trabajo</label>
+                    </div>
+                    <div class="estilo">
+                      <input id="fiesta" type="checkbox">
+                      <label for="fiesta">Fiesta</label>
+                    </div>
+                    <div class="estilo">
+                      <input id="bohemio" type="checkbox">
+                      <label for="bohemio">Bohemio</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="container_tallas">
+                  <h3>Tallas<span>-</span></h3>
+                  <div class="content-tallas">
+                    <div class="talla">
+                      <input id="u" type="checkbox">
+                      <label for="u">U</label>
+                    </div>
+                    <div class="talla">
+                      <input id="s" type="checkbox">
+                      <label for="s">S</label>
+                    </div>
+                    <div class="talla">
+                      <input id="m" type="checkbox">
+                      <label for="m">M</label>
+                    </div>
+                    <div class="talla">
+                      <input id="l" type="checkbox">
+                      <label for="l">L</label>
+                    </div>
+                    <div class="talla">
+                      <input id="xl" type="checkbox">
+                      <label for="xl">XL</label>
+                    </div>
+                    <div class="talla">
+                      <input id="xxl" type="checkbox">
+                      <label for="xxl">XXL</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section class="container_productos">
+                <div class="productos_lista">
+                    <div class="header_product">
+                        <div class="ordenarFiltro">
+                            <span>Ordenar por:</span>
+                        </div>
+                        <select name="filtroOrden" id="ordenFiltro">
+                            <option value="masRelevantes">Más relevantes</option>
+                            <option value="menorPrecio">Menor precio</option>
+                            <option value="mayorPrecio">Mayor precio</option>
+                        </select>
+                    </div>
+                    <div class="content_producto">
+                        <div class="productos" id="productos">
+                            <!-- Aqui se agregan los productos de manera dinamica -->
+                        </div>             
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <script type="module" src="../js/productosView.js"></script>
+</body>
+</html>

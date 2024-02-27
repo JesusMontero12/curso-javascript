@@ -1,186 +1,418 @@
-main{
-    .mi_bolsa{
-        margin-top: .625rem;
-        h2{
-            text-align: center;
-            font-family: Montserrat;
-            font-weight: 600;
-            font-size: 3.125rem;
-        }
-        .content_productos{
-            width: 70%;
-            height: 65vh;
-            margin: 1.25rem 50px; 
-            box-shadow: 2px 2px 10px 0px rgba(0,0,0,0.5);  
-            overflow-y: scroll;          
-            .productos{
-                margin: auto;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                .grid{
-                    width: 100%;
-                    height: 300px;
-                    padding: 1.25rem;          
-                    display: grid; 
-                    grid-template-columns: 250px 1fr 50px; 
-                    grid-template-rows: 1fr; 
-                    gap: 0px 0px; 
-                    grid-template-areas: "img info action"; 
-                    .sale{
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        margin: -23.75rem 0rem 0rem 7.5rem;
-                        position: relative;
-                        p{
-                            margin-top: .75rem;
-                            font-family: montserrat;
-                            font-size: .4375rem;
-                            font-weight: bold;
-                            color: $color-text-3;
-                            position: absolute;
-                        }
-                        img{
-                            width: 1.875rem;
-                            height: 1.875rem;
-                        }
-                    }
-                    .cuerpo{
-                        width: 100%;                            
-                        height: 100%;
-                        display: flex;
-                        padding: .625rem;
-                        justify-content: center;
-                        align-items: center;
-                        grid-area: img;
-                        overflow: hidden;
-                        img{
-                            width: 100%;
-                            height: 100%;
-                            object-fit: cover;
-                        }
-                    }
-                    .content_info{
-                        display: flex;
-                        flex-direction: column;
-                        padding: 10px;
-                        grid-area: info;
-                        .titulo{
-                            h3{
-                                margin: 5px 0rem;
-                                text-align: left;
-                                font-family: arimo;
-                                font-weight: 600;
-                                font-size: 30px;
-                                color: $color-text-3;
-                                span{
-                                    margin-left: 10px;
-                                    padding: 5px;
-                                    border-radius: .125rem;
-                                    font-family: arimo;
-                                    font-size: 15px;
-                                    color: $color-text-1;
-                                    background-color: red;
-                                    border-radius: 5px;
-                                } 
-                            }
-                        }
-                        .precio_descuento{
-                            display: flex;
-                            align-items: center;
-                            font-family: arimo;
-                            font-weight: 300;
-                            font-size: 25px;
-                            p{
-                                margin-left: 10px;
-                                font-family: arimo;
-                                font-size: 15px;
-                                font-weight: 300;
-                                color: $color-text-3;
-                                text-decoration: line-through!important;
-                            }                  
-                        }
-                        .detalle{
-                            input{
-                                width: 60px;
-                                height: 30px;
-                                margin: 15px 0rem;
-                                padding: 2px;
-                                font-family: arimo;
-                            }
-                            .total{
-                                margin-top: 25px;                               
-                                h4{
-                                    width: 200px;
-                                    display: flex;
-                                    align-items: center;
-                                    font-family: arimo;
-                                    font-size: 1rem;
-                                    color: $color-text-3;
-                                    b{
-                                        width: 100px;
-                                        text-align: right;
-                                        padding: 5px;
-                                        font-family: montserrat;
-                                        font-size: 16px;
-                                        font-weight: 600;
-                                        color: $color-text-2;
-                                    }
-                                }
-                                p{ 
-                                    width: 200px;                               
-                                    display: flex;
-                                    align-items: center;
-                                    font-family: arimo;
-                                    font-size: 1rem;
-                                    color: $color-text-3;
-                                    b{
-                                        width: 100px;
-                                        text-align: right;
-                                        padding: 5px;
-                                        font-family: montserrat;
-                                        font-size: 16px;
-                                        font-weight: 600;
-                                        color: $color-text-2;
-                                    }
-                                }
-                                h5{
-                                    width: 200px;
-                                    display: flex;
-                                    align-items: center;
-                                    font-family: arimo;
-                                    font-size: 1rem;
-                                    color: $color-text-3;
-                                    b{
-                                        width: 100px;
-                                        text-align: right;
-                                        padding: 5px;
-                                        font-family: montserrat;
-                                        font-size: 16px;
-                                        font-weight: 600;
-                                        color: $color-text-2;
-                                    }
-                                }
-                            }
-                        } 
-                    }      
-                    .actionProduct{
-                        margin: auto;
-                        grid-area: action;
-                        img:hover{
-                            transition: 0.5s;
-                            transform: scale(1.2);
-                        }
-                    }                
-                }
-                .grid:hover{
-                    cursor: pointer;
-                    transition: 0.5s;
-                    transform: scale(1.02);
-                }
-            }
-        }
+main {
+  .mi_bolsa {
+    margin-top: 0.625rem;
+    h2 {
+      text-align: center;
+      font-family: Montserrat;
+      font-weight: 600;
+      font-size: 3.125rem;
     }
+    .content_productos {
+      width: 100%;
+      height: 65vh;
+      display: flex;
+      justify-content: center;      
+      .productos {
+        width: 60%;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 1.25rem 25px;
+        box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.5);
+        overflow-y: scroll;
+        p{
+            margin: auto;
+        }
+        .grid {
+          width: 100%;
+          height: 300px;
+          padding: 1.25rem;
+          display: grid;
+          grid-template-columns: 250px 470px 50px;
+          grid-template-rows: 1fr;
+          gap: 0px 0px;
+          grid-template-areas: "img info action";
+          .sale {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: -430px 0rem 0rem 180px;
+            position: relative;
+            p {
+              margin-top: 14px;
+              font-family: montserrat;
+              font-size: 10px;
+              font-weight: bold;
+              color: $color-text-3;
+              position: absolute;
+            }
+            img {
+              width: 45px;
+              height: 45px;
+            }
+          }
+          .cuerpo {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            padding: 0.625rem;
+            justify-content: center;
+            align-items: center;
+            grid-area: img;
+            overflow: hidden;
+            img {
+              width: 100%;
+              height: 200px;
+              object-fit: cover;
+            }
+          }
+          .content_info {
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            grid-area: info;
+            .titulo {
+              h3 {
+                margin: 5px 0rem;
+                text-align: left;
+                font-family: arimo;
+                font-weight: 600;
+                font-size: 30px;
+                color: $color-text-3;
+                span {
+                  margin-left: 10px;
+                  padding: 5px;
+                  border-radius: 0.125rem;
+                  font-family: arimo;
+                  font-size: 15px;
+                  color: $color-text-1;
+                  background-color: red;
+                  border-radius: 5px;
+                }
+              }
+              p {
+                margin: 0.625rem 0rem 1.5625rem 0rem;
+              }
+            }
+            .precio_descuento {
+              display: flex;
+              align-items: center;
+
+              #precioCantidad {
+                margin: 5px 0rem;
+                padding: 0;
+                font-family: arimo;
+                font-weight: 300;
+                font-size: 25px;
+                text-align: left;
+                text-decoration: none;
+              }
+              p {
+                margin-left: 10px;
+                font-family: arimo;
+                font-size: 15px;
+                font-weight: 300;
+                color: $color-text-3;
+                text-decoration: line-through;
+              }
+            }
+            .cantidad {
+              display: flex;
+              align-items: center;
+              input[type="number"] {
+                -webkit-appearance: textfield;
+                appearance: textfield;
+
+                position: relative;
+                width: 60px;
+                height: 30px;
+                margin: 0rem;
+                padding: 5px 25px 5px 5px;
+                font-family: arimo;
+                font-size: 18px;
+                height: 30px;
+                text-align: center;
+                border: 1px solid $color-text-3;
+                outline: none;
+              }
+              input[type="number"]::-webkit-inner-spin-button,
+              input[type="number"]::-webkit-outer-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+                opacity: 1;
+                width: 50px;
+                position: absolute;
+                top: 0;
+                right: 0;
+                height: 100%;
+              }
+              .increment {
+                width: 30px;
+                height: 30px;
+                margin: 0rem;
+                font-family: Montserrat;
+                font-size: 20px;
+                font-weight: 600;
+                color: $color-text-1;
+                background-color: $color-text-3;
+                border: none;
+              }
+              .decrement {
+                width: 30px;
+                height: 30px;
+                margin: 0rem;
+                font-family: Montserrat;
+                font-size: 20px;
+                font-weight: 600;
+                color: $color-text-1;
+                background-color: $color-text-3;
+                border: none;
+              }
+            }            
+          }
+          .actionProduct {
+            margin: auto;
+            grid-area: action;
+            img:hover {
+              transition: 0.5s;
+              transform: scale(1.2);
+            }
+          }
+        }
+        .grid:hover {
+          cursor: pointer;
+          transition: 0.5s;
+          transform: scale(1.02);
+        }
+      }
+      .total {
+        width: 30%;
+        padding: 10px;
+        margin: 1.25rem 25px;
+        box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.5);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .headerDetalle{
+          text-align: center;
+          h4 {
+            margin: 30px 0px 10px 0px;
+            font-family: montserrat;
+            font-weight: 600;
+            font-size: 30px;
+          }
+          label{
+            text-align: center;
+          }
+        }
+        .detalle {
+          margin: 0rem 0rem 100px .625rem;
+          h5 {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            font-family: arimo;
+            font-weight: 600;
+            font-size: 1.125rem;
+          }
+          h6 {
+            display: flex;
+            justify-content: space-between;
+              margin-top: 10px;
+              font-family: arimo;
+              font-weight: 600;
+              font-size: 1.125rem;
+          }
+          p {
+            display: flex;
+            justify-content: space-between;
+              margin-top: 10px;
+              font-family: arimo;
+              font-weight: 600;
+              font-size: 1.125rem;
+          } 
+          button {
+            position: absolute;
+            width: 20%;
+            margin: 30px 50px;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+            color: $color-text-1;
+            border: none;
+            background-color: $bg-2;
+          }
+          button:hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+
+  .formularioEnvioPago{
+    display: none; 
+    position: fixed; 
+    z-index: 1;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    inset: 0;
+    width: 100%;
+    height: 100%; 
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5); 
+    .formulario_content {
+      width: 50%;
+      margin: auto;
+      padding: 20px;      
+      position: relative;
+      border-radius: 5px;
+      background-color: white;      
+      -webkit-animation-name: animarsuperior;
+      -webkit-animation-duration: 0.5s;
+      animation-name: animarsuperior;
+      animation-duration: 0.5s;
+      span {
+        font-size: 40px;
+      }
+      span:hover{
+        cursor: pointer;
+      }
+      h4 {
+        font-family: montserrat;
+        font-weight: 600;
+        font-size: 30px;
+        text-align: center;
+      }
+      .section_contacto {
+        display: flex;
+        margin-top: 10px;
+        flex-direction: column;
+        h5 {
+          font-size: 18px;
+        }
+        p {
+          margin-left: 20px;
+        }
+        input {
+          margin: 10px 20px;
+          padding: 10px 15px;
+          font-family: montserrat;
+          font-weight: 300;
+          font-size: 16px;
+        }
+      }
+      .section_direccion {
+        display: flex;
+        margin-top: 10px;
+        flex-direction: column;
+        h5 {
+          font-size: 18px;
+        }
+        p {
+          margin-left: 20px;
+        }
+        .nombreApellidos {
+          display: flex;
+          width: 100%;
+          input {
+            width: 305px;
+            margin: 10px 0px 10px 20px;
+          }
+        }
+        input {
+          margin: 10px 20px;
+          padding: 10px 15px;
+          font-family: montserrat;
+          font-weight: 300;
+          font-size: 16px;
+        }
+        select {
+          margin: 10px 20px;
+          padding: 10px 15px;
+          font-family: montserrat;
+          font-weight: 300;
+          font-size: 16px;
+        }
+      }
+      .section_envio {
+        display: flex;
+        margin-top: 10px;
+        flex-direction: column;
+        justify-content: center;
+        h5 {
+          font-size: 18px;
+        }
+        fieldset {
+          margin: 10px 20px;
+          legend {
+            padding-left: 10px;
+            font-size: 18px;
+          }
+          .checkEnvio {
+            margin: 5px;
+            padding: 10px;
+          }
+        }
+      }
+      .section_pago {
+        display: flex;
+        margin-top: 10px;
+        flex-direction: column;
+        justify-content: center;
+        h5 {
+          font-size: 18px;
+        }
+        fieldset {
+          margin: 10px 20px;
+          legend {
+            padding-left: 10px;
+            font-size: 18px;
+          }
+          .checkPago {
+            margin: 5px;
+            padding: 10px;
+          }
+        }
+        .AggNota {
+          display: flex;
+          flex-direction: column;
+          margin: 20px;
+          span {
+            font-family: montserrat;
+            font-size: 16px;
+            font-weight: 600;
+          }
+          textarea {
+            display: none;
+            margin: 10px 0px;
+            padding: 10px 15px;
+            font-family: montserrat;
+            font-weight: 300;
+            font-size: 16px;
+          }
+        }
+        .finalizarPago {
+          padding: 15px;
+          background-color: rgba(0, 0, 0, 0.3);
+          border-radius: 5px;
+          box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.5);
+        }
+      }
+      .section_pagar {
+        display: flex;
+        input {
+          width: 40%;
+          margin: 20px auto;
+          padding: 16px 20px;
+          font-family: Montserrat;
+          font-size: 18px;
+          color: $color-text-1;
+          background-color: $bg-2;
+          border: none;
+        }
+      }
+    }
+  }
 }

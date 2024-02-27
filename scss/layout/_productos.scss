@@ -1,0 +1,296 @@
+main {
+    .grid_content-product{
+        display: grid; 
+            grid-template-columns: 250px 1fr; 
+            grid-template-rows: 1fr; 
+            gap: 0px 0px; 
+            grid-template-areas: "filtros productos"; 
+        .content_filtros{
+            grid-area: filtros;
+            background-color: rgba(0,0,0,.05);
+            .filtros{
+                position: sticky;
+                top: 0;
+                h2{
+                    margin: 20px;
+                    text-align: center;
+                    font-family: montserrat;
+                    font-size: 25px;
+                    font-weight: 600;
+                }
+                .container_categorias{
+                    padding: 5px;
+                    h3{
+                        margin: 10px;
+                        font-family: montserrat;
+                        font-size: 18px;
+                        font-weight: 600;
+                        span{
+                            margin: 10px;
+                        }
+                    }
+                    .content_categorias{
+                        margin-left: 15px;
+                        padding: 5px;
+                        .categoria{margin: 5px;
+                        }
+                    }
+                }
+                .container_ajustes{
+                    padding: 5px;
+                    h3{
+                        margin: 10px;
+                        font-family: montserrat;
+                        font-size: 18px;
+                        font-weight: 600;
+                        span{
+                            margin: 10px;
+                        }
+                    }
+                    .content-ajustes{
+                        margin-left: 15px;
+                        padding: 5px;
+                        .ajuste{
+                            margin: 5px;
+                        }
+                    }
+                }
+                .container_estilo{
+                    padding: 5px;
+                    h3{
+                        margin: 10px;
+                        font-family: montserrat;
+                        font-size: 18px;
+                        font-weight: 600;
+                        span{
+                            margin: 10px;
+                        }
+                    }
+                    .content-estilo{
+                        margin-left: 15px;
+                        padding: 5px;
+                        .estilo{
+                            margin: 5px;
+                        }
+                    }
+                }
+                .container_tallas{
+                    padding: 5px;
+                    h3{
+                        margin: 10px;
+                        font-family: montserrat;
+                        font-size: 18px;
+                        font-weight: 600;
+                        span{
+                            margin: 10px;
+                        }
+                    }
+                    .content-tallas{
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: center;
+                        max-width: 100%;
+                        margin: 15px;
+                        padding: 2px;
+                        .talla{           
+                            input{
+                                display: none;
+                            }
+                            label{
+                                margin: 2px;
+                                padding: 5px;
+                                border: 1px solid $bg-3;
+                                border-radius: 5px;
+                            }
+                            label:hover{
+                                cursor: pointer;
+                                border: 1px solid $bg-1;
+                                color: $color-text-1;
+                                background-color: $bg-2;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .container_productos{
+            grid-area: productos;
+            .productos_lista{
+                .header_product{
+                    display: flex;                    
+                    justify-content: end;
+                    padding: 20px;
+                    .ordenarFiltro{
+                        span{
+                            margin: 5px;
+                            padding: 5px;
+                            font-family: montserrat;
+                            font-weight: 600;
+                            font-size: 16px;
+                        }
+                    }
+                    select{
+                        border: none;
+                        background: none;
+                        outline: none;
+                        font-family: montserrat;
+                        font-weight: 300;
+                        font-size: 15px;
+                        color: $color-text-3;
+                    }
+                    select:hover{
+                        cursor: pointer;
+                    }
+                }                    
+                .content_producto{
+                    width: 90%;
+                    margin: auto;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    .productos{
+                        display: flex;
+                        flex-wrap: wrap;
+                        width: 100%;
+                        margin: 5px;
+                        padding: 5px;
+                        a{
+                            width: 300px;
+                            margin: 20px;
+                            text-decoration: none;
+                            .sale{
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                margin-left: 220px;
+                                position: relative;
+                                p{
+                                    margin-top: 20px;
+                                    font-family: montserrat;
+                                    font-size: .625rem;
+                                    font-weight: bold;
+                                    color: $color-text-3;
+                                    position: absolute;
+                                    z-index: 2;
+                                }
+                                img{
+                                    width: 3.125rem;
+                                    height: 3.125rem;
+                                    position: absolute;
+                                    z-index: 1;
+                                }
+                            }
+                            .cuerpo{                        
+                                width: 100%;
+                                height: 200px;
+                                position: relative;
+                                max-width: 300px;
+                                overflow: hidden;
+                                .btnsCambiar{ 
+                                    position: absolute;
+                                    width: 90%;
+                                    height: 100%;
+                                    margin: 0px 12px;
+                                    display: flex;
+                                    justify-content: space-between;
+                                    align-items: center;
+                                    z-index: 1;
+                                    .FlechaImgizquierda{      
+                                        font-size: 50px;
+                                        color: $color-text-1;                                    
+                                    }
+                                    .FlechaImgizquierda:hover{
+                                        cursor: pointer;
+                                        transition: .1s;
+                                        transform: scale(1.5);
+                                    }
+                                    .FlechaImgDerecha{
+                                        font-size: 50px;
+                                        color: $color-text-1;
+                                    }
+                                    .FlechaImgDerecha:hover{
+                                        cursor: pointer;
+                                        transition: .1s;
+                                        transform: scale(1.5);
+                                    }
+                                }
+                                .imgProducto{
+                                    width: 100%;
+                                    height: 100%;
+                                    object-fit: cover;
+                                    display: block;
+                                }
+                            }
+                            .content_text{
+                                width: 100%;
+                                margin: 5px 0px;
+                                h3{
+                                    text-align: left;
+                                    font-family: arimo;
+                                    font-size: 20px;
+                                    color: $color-text-3;
+                                }
+                                p{
+                                    margin: 5px 2px 5px 0px;
+                                    text-align: left;
+                                    font-family: arimo;
+                                    font-size: 16px;
+                                    color: $color-text-3;
+                                }
+                            }
+                            .precio_descuento{
+                                display: flex;
+                                align-items: center;
+                                p{
+                                    font-family: montserrat;
+                                    font-size: 1rem;
+                                    font-weight: 600;
+                                    color: $color-text-3;
+                                }    
+                                span{
+                                    margin-left: 10px;
+                                    padding: .25rem;
+                                    border-radius: .125rem;
+                                    font-family: arimo;
+                                    font-size: .75rem;
+                                    color: $color-text-1;
+                                    background-color: red;
+                                }                
+                            }
+                            .precio{
+                                margin: .3125rem 0rem .625rem 0rem;
+                                p{
+                                    font-family: montserrat;
+                                    font-size: .75rem;
+                                    font-weight: 600;
+                                    color: rgba(0,0,0,.5);
+                                    text-decoration: line-through;
+                                }
+                            }
+                            .btnAdd{
+                                padding: 5px 10px;
+                                font-family: Montserrat;
+                                font-size: 1rem;
+                                font-weight: 600;
+                                text-decoration: none;
+                                color: $color-text-3;
+                                background-color: yellow;
+                                border-style: none;
+                                border-radius: .3125rem;
+                            }
+                            .btnAdd:hover{
+                                cursor: pointer;
+                                transition: 0.2s;
+                                transform: scale(1.05);
+                            }
+                        }
+                        a:hover{
+                            transition: .5s;
+                            transform: scale(1.05);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

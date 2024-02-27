@@ -1,0 +1,54 @@
+main{
+    .contentLogin{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .login{
+            padding: 50px 100px;
+            margin-top: 100px;
+            box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.4);
+            h1{
+                font-family: arimo;
+                font-weight: 600;
+                text-align: center;
+            }
+            form{
+                display: flex;
+                flex-direction: column;
+    
+                input{
+                    margin: 10px 0rem;
+                    padding: 5px;
+                    width: 300px;
+                    height: 30px;
+                    outline: none;
+                }
+                button{
+                    width: 300px;
+                    height: 30px;
+                    background-color: yellow;
+                    font-family: Montserrat;
+                    font-weight: 900;
+                    border: 0.5px solid $color-text-3;
+                }
+            }
+            .InicioRapido{
+                display: flex;
+                flex-direction: column;
+                margin-top: 40px;
+                h2{
+                    text-align: center;
+                    font-family: montserrat;
+                    font-weight: 300;
+                    color: rgba(0,0,0,0.5);
+                }
+                button{
+                    width: 300px;
+                    height: 30px;
+                    margin: 10px 0rem
+                }
+            }
+        }
+    }
+    
+}

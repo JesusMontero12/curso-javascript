@@ -46,7 +46,23 @@
     </header>
     
     <main>
+        <div class="custom-number-input">
+            <input type="number" id="customInput" value="1" min="0">
+            <button onclick="increment()">+</button>
+            <button onclick="decrement()">-</button>
+        </div>
         
+        <script>
+            function increment() {
+                const input = document.getElementById('customInput');
+                input.stepUp();
+            }
+        
+            function decrement() {
+                const input = document.getElementById('customInput');
+                input.stepDown();
+            }
+        </script>
     </main>
 </body>
 </html>
