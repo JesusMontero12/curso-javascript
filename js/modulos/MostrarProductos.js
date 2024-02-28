@@ -161,7 +161,7 @@ function createProductElement(producto, sale, precioDesc, precio, elementoDescue
         <label id="anterior_${producto.id}" class="FlechaImgizquierda">&#8249;</label>
         <label id="siguiente_${producto.id}" class="FlechaImgDerecha">&#8250;</label>
       </div>
-      <img class="imgProducto" id="imgProducto_${producto.id}" src=".${producto.imagen[0]}" alt="${producto.nombre}">
+      <img class="imgProducto" src=".${producto.imagen[0]}" alt="${producto.nombre}">
     </div>
     <div class="content_text">
         <h3>${producto.nombre}</h3>
@@ -185,7 +185,7 @@ export function mostrarProductosBag() {
 
   const listProductos = document.getElementById("productos");
   const detalle = document.getElementById("content_productos");
-
+  
     if (productos.length == 0) {
       listProductos.innerHTML = `<p>No tienes ningun producto agregado a la bolsa.<p>`;
     } else {      
@@ -194,7 +194,7 @@ export function mostrarProductosBag() {
         const elementoDescuento = crearElementoDescuento(producto.descuento);
         const precioDesc = calcularPrecioDescuento(producto.precio, producto.descuento);
         const totalProdCant = calcularTotalProductoCantidad(producto.cantAgg, precioDesc);
-
+        console.log(`${producto.imagen}`);
         const div = crearElementoProductos(producto, sale, elementoDescuento, precioDesc, totalProdCant);
         listProductos.appendChild(div);        
 
@@ -222,6 +222,7 @@ export function mostrarProductosBag() {
   function calcularTotalProductoCantidad(cantAgg, precioDesc) {
       return `<p id="precioCantidad">$ ${Number(cantAgg * precioDesc).toFixed(3)}</p>`;
   }
+
   
   function crearElementoProductos(producto, sale, elementoDescuento, precioDesc, totalProdCant) {
       const div = document.createElement("div");
@@ -229,7 +230,12 @@ export function mostrarProductosBag() {
       div.innerHTML = `
           ${sale}
           <div class="cuerpo">
-              <img src="${producto.imagen}" alt="${producto.nombre}">
+
+          ${producto.imagen.split(',')[0].trim() !== '' ? `<img src="${producto.imagen.split(',')[0].trim()}" alt="${producto.nombre} - Imagen 1">` : ''}
+
+
+              
+              
           </div>
           <div class="content_info">
               <div class="titulo">
