@@ -213,7 +213,7 @@ main .list_productos .content_producto .productos a .sale img {
 }
 main .list_productos .content_producto .productos a .cuerpo {
   width: 200px;
-  height: 200px;
+  height: 400px;
   overflow: hidden;
 }
 main .list_productos .content_producto .productos a .cuerpo img {
@@ -224,7 +224,7 @@ main .list_productos .content_producto .productos a .cuerpo img {
 main .list_productos .content_producto .productos a .titulo h3 {
   text-align: left;
   font-family: arimo;
-  font-size: 20px;
+  font-size: 18px;
   color: #454545;
 }
 main .list_productos .content_producto .productos a .precio_descuento {
@@ -457,7 +457,7 @@ main .grid_content-product .container_productos .productos_lista .content_produc
 }
 main .grid_content-product .container_productos .productos_lista .content_producto .productos a .cuerpo {
   width: 100%;
-  height: 200px;
+  height: 400px;
   position: relative;
   max-width: 300px;
   overflow: hidden;
