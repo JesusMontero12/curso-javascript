@@ -8,10 +8,14 @@ header{
         .content_logo{
             margin: .3125rem .625rem;
             .logo{
-                color: $color-text-2;
+                
+                filter: drop-shadow(2px 4px 2px orange);
+                a{
+                    color: $color-text-2;
                 font-family: Montserrat;
                 font-size: 2.5rem;
-                filter: drop-shadow(2px 4px 2px orange);
+                    text-decoration: none;
+                }
             }
         }
         .content_search{
@@ -57,8 +61,32 @@ header{
                             border: 2px solid $bg-1;
                             border-radius: 50%;
                             
-                        }    
+                        }   
                     }
+                    #plegableNotificacion{
+                        display: none;
+                        padding: 15px;
+                        width: 180px;
+                        height: auto;
+                        position: absolute;
+                        background-color: $bg-1;
+                        border-bottom-left-radius: 5px;
+                        border-bottom-right-radius: 5px;
+                        box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.4);
+                        z-index: 1;
+                        ul{
+                            li{
+                                p{
+                                    a{
+                                        font-family: arimo;
+                                        font-size: 10px;
+                                        font-weight: 600;
+                                        color: $color-text-2;
+                                    }
+                                }
+                            }
+                        }
+                    } 
                 }
             }
         }

@@ -54,7 +54,7 @@ db_productos.forEach((producto) => {
           id: idProduc,
           nombre: producto.nombre,
           precio: producto.precio.toFixed(3),
-          imagen: `.${producto.imagen}`,
+          imagen: producto.imagen.map(imagen => `.${imagen}`),
           sale: producto.sale,
           descuento: producto.desc,
           stock: producto.stock,
@@ -107,27 +107,60 @@ function createProductElement(producto, sale, precioDesc, precio, elementoDescue
 
 export function todoslosproductos() {
   const aggProductos = document.getElementById("productos");
- 
-  // Iterar sobre cada producto en db_productos
-db_productos.forEach((producto) => {
-  // Crear elementos HTML para el producto
-  const sale = producto.sale ? createSaleElement() : '';
-  const elementoDescuento = producto.desc > 0 ? `<span>-${producto.desc}%</span>` : '';
-  const descuento = producto.precio.toFixed(3) - (producto.precio.toFixed(3) / 100) * producto.desc;
-  const precioDesc = producto.desc > 0 ? `<p>${descuento.toFixed(3)}</p>` : `<p>${producto.precio.toFixed(3)}</p>`;
-  const precio = producto.desc > 0 ? `<p>${producto.precio.toFixed(3)}</p>` : `<br>`;
+  const parametro = new URLSearchParams(window.location.search);
+  const categoria = parametro.get('categoria');
 
-  const div = createProductElement(producto, sale, precioDesc, precio, elementoDescuento);
-  aggProductos.appendChild(div);
+    if (categoria == null) {
+      db_productos.forEach((producto) => {
+        // Crear elementos HTML para el producto
+        const sale = producto.sale ? createSaleElement() : '';
+        const elementoDescuento = producto.desc > 0 ? `<span>-${producto.desc}%</span>` : '';
+        const descuento = producto.precio.toFixed(3) - (producto.precio.toFixed(3) / 100) * producto.desc;
+        const precioDesc = producto.desc > 0 ? `<p>${descuento.toFixed(3)}</p>` : `<p>${producto.precio.toFixed(3)}</p>`;
+        const precio = producto.desc > 0 ? `<p>${producto.precio.toFixed(3)}</p>` : `<br>`;
 
-  // Elementos para el carrusel
-  const btnAnterior = document.getElementById(`anterior_${producto.id}`);
-  const btnSiguiente = document.getElementById(`siguiente_${producto.id}`);
-  let i = 0;
+        const div = createProductElement(producto, sale, precioDesc, precio, elementoDescuento);
+        aggProductos.appendChild(div);
 
-  cambiarImagen(btnSiguiente, btnAnterior, producto.imagen, i, producto.id);
-  
-});
+        // Elementos para el carrusel
+        const btnAnterior = document.getElementById(`anterior_${producto.id}`);
+        const btnSiguiente = document.getElementById(`siguiente_${producto.id}`);
+        let i = 0;
+
+        cambiarImagen(btnSiguiente, btnAnterior, producto.imagen, i, producto.id);
+      });
+    } else {
+      const params = new URLSearchParams(window.location.search);
+      const categoria = params.get('categoria');
+      const productosFiltrados = db_productos.filter(productoCat => productoCat.categoria.toLowerCase().replace(/\s/g, '') === categoria.toLowerCase().replace(/\s/g, ''));
+      
+
+      if (productosFiltrados.length > 0) {
+        productosFiltrados.forEach((productoCat) => {
+          const sale = productoCat.sale ? createSaleElement() : '';
+          const elementoDescuento = productoCat.desc > 0 ? `<span>-${productoCat.desc}%</span>` : '';
+          const descuento = productoCat.precio.toFixed(3) - (productoCat.precio.toFixed(3) / 100) * productoCat.desc;
+          const precioDesc = productoCat.desc > 0 ? `<p>${descuento.toFixed(3)}</p>` : `<p>${productoCat.precio.toFixed(3)}</p>`;
+          const precio = productoCat.desc > 0 ? `<p>${productoCat.precio.toFixed(3)}</p>` : `<br>`;
+
+          const div = createProductElement(productoCat, sale, precioDesc, precio, elementoDescuento);
+          aggProductos.appendChild(div);
+          console.log(div);
+
+          // Elementos para el carrusel
+          const btnAnterior = document.getElementById(`anterior_${productoCat.id}`);
+          const btnSiguiente = document.getElementById(`siguiente_${productoCat.id}`);
+          console.log(btnAnterior);
+          console.log(btnSiguiente);
+          let i = 0;
+
+          cambiarImagen(btnSiguiente, btnAnterior, productoCat.imagen, i, productoCat.id);
+        });        
+      } else {
+        contenedorResult.innerHTML = '<p>No se encontraron productos para esta categoría</p>';
+      }
+  }  
+
 function cambiarImagen(btnSiguiente, btnAnterior, imagenes, i, productId) {
   btnSiguiente.addEventListener('click', (e) => {
     e.preventDefault();
@@ -142,7 +175,7 @@ function cambiarImagen(btnSiguiente, btnAnterior, imagenes, i, productId) {
   });
 
   function actualizarImagen(productId) {
-      const imagenCarrusel = document.getElementById(`imgProducto_${productId}`);
+      const imagenCarrusel = document.getElementById(`img_${productId}`);
       imagenCarrusel.src = `../${imagenes[i]}`;
   }
 }
@@ -161,7 +194,7 @@ function createProductElement(producto, sale, precioDesc, precio, elementoDescue
         <label id="anterior_${producto.id}" class="FlechaImgizquierda">&#8249;</label>
         <label id="siguiente_${producto.id}" class="FlechaImgDerecha">&#8250;</label>
       </div>
-      <img class="imgProducto" src=".${producto.imagen[0]}" alt="${producto.nombre}">
+      <img class="imgProducto" id="img_${producto.id}" src=".${producto.imagen[0]}" alt="${producto.nombre}">
     </div>
     <div class="content_text">
         <h3>${producto.nombre}</h3>
@@ -194,7 +227,6 @@ export function mostrarProductosBag() {
         const elementoDescuento = crearElementoDescuento(producto.descuento);
         const precioDesc = calcularPrecioDescuento(producto.precio, producto.descuento);
         const totalProdCant = calcularTotalProductoCantidad(producto.cantAgg, precioDesc);
-        console.log(`${producto.imagen}`);
         const div = crearElementoProductos(producto, sale, elementoDescuento, precioDesc, totalProdCant);
         listProductos.appendChild(div);        
 
@@ -230,12 +262,7 @@ export function mostrarProductosBag() {
       div.innerHTML = `
           ${sale}
           <div class="cuerpo">
-
-          ${producto.imagen.split(',')[0].trim() !== '' ? `<img src="${producto.imagen.split(',')[0].trim()}" alt="${producto.nombre} - Imagen 1">` : ''}
-
-
-              
-              
+            <img src="${producto.imagen[0]}" alt="${producto.nombre}">
           </div>
           <div class="content_info">
               <div class="titulo">

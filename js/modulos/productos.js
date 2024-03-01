@@ -44,7 +44,7 @@ export const db_productos = [
     id: 3,
     nombre: "Camiseta",
     precio: 20.99,
-    categoria: "Ropa casual",
+    categoria: "camisa",
     descripcion: "Camiseta cómoda y suave ideal para el verano.",
     imagen: [
       "./assets/img/img-products/camiseta-marron1-1.jpeg",
