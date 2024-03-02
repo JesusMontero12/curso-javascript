@@ -25,7 +25,5 @@ export function VentanaModal() {
         } else {
             textarea.style.display = "none";
         }
-    })
-
-
+    });
 }

@@ -18,7 +18,11 @@
             </div>
             <nav>
                 <ul class="nav_bar">
-                    <li><a href=""><img src="../assets/icons/notificacion.png" alt="icono de notificaciones"></a></li>
+                    <li>
+                        <img id="notificaciones" src="../assets/icons/notificacion.png" alt="icono de notificaciones">
+                        <div id="plegableNotificacion">
+                        </div>
+                    </li>
                     <li><a href="./login.html"><img src="../assets/icons/user.png" alt="icono de usuario"></a></li>
                     <li><a href="./bag.html" id="content-burbuja"><img src="../assets/icons/bag.png" alt="icono de bolsa de compras"></a></li>
                     <li><a href="./favoritos.html"><img src="../assets/icons/heart.png" alt="icono de corazon"></a></li>
@@ -38,8 +42,8 @@
                 <li><a href="./productos.html?categoria=accesorios">Joyas</a></li>
                 <li><a href="./productos.html?categoria=abrigos">Chaquetas</a></li>
                 <li><a href="./productos.html?categoria=ropaDeportiva">Tops</a></li>
-                <li><a href="./productos.html?categoria=ropaCasual"">Blusas</a></li>
-                <li><a href="./productos.html?categoria=ropaCasual"">Blazer</a></li>
+                <li><a href="./productos.html?categoria=ropaCasual">Blusas</a></li>
+                <li><a href="./productos.html?categoria=ropaCasual">Blazer</a></li>
                 <li><a href="./productos.html?categoria=ropadedormir">Ropa para dormir</a></li>
             </ul>
         </div>
@@ -55,11 +59,14 @@
                 </form>
                 <div class="InicioRapido">
                     <h2>Inicio rápido</h2>
-                    <button>Google</button>
-                    <button>Facebook</button>
+                    <div class="btnLoginApi">
+                        <a href="#"><img src="../assets/icons/google.png" alt=""></a>
+                        <a href="#"><img src="../assets/icons/facebook.png" alt=""></a>
+                    </div>
                 </div>
             </div>
         </div>
     </main>
+    <script type="module" src="../js/login.js"></script>
 </body>
 </html>

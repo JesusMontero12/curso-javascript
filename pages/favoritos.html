@@ -18,7 +18,11 @@
             </div>
             <nav>
                 <ul class="nav_bar">
-                    <li><a href=""><img src="../assets/icons/notificacion.png" alt="icono de notificaciones"></a></li>
+                    <li>
+                        <img id="notificaciones" src="../assets/icons/notificacion.png" alt="icono de notificaciones">
+                        <div id="plegableNotificacion">
+                        </div>
+                    </li>
                     <li><a href="./login.html"><img src="../assets/icons/user.png" alt="icono de usuario"></a></li>
                     <li><a href="./bag.html" id="content-burbuja"><img src="../assets/icons/bag.png" alt="icono de bolsa de compras"></a></li>
                     <li><a href="./favoritos.html"><img src="../assets/icons/heart.png" alt="icono de corazon"></a></li>
@@ -38,31 +42,16 @@
                 <li><a href="./productos.html?categoria=accesorios">Joyas</a></li>
                 <li><a href="./productos.html?categoria=abrigos">Chaquetas</a></li>
                 <li><a href="./productos.html?categoria=ropaDeportiva">Tops</a></li>
-                <li><a href="./productos.html?categoria=ropaCasual"">Blusas</a></li>
-                <li><a href="./productos.html?categoria=ropaCasual"">Blazer</a></li>
+                <li><a href="./productos.html?categoria=ropaCasual">Blusas</a></li>
+                <li><a href="./productos.html?categoria=ropaCasual">Blazer</a></li>
                 <li><a href="./productos.html?categoria=ropadedormir">Ropa para dormir</a></li>
             </ul>
         </div>
-    </header>
+      </header>
     
     <main>
-        <div class="custom-number-input">
-            <input type="number" id="customInput" value="1" min="0">
-            <button onclick="increment()">+</button>
-            <button onclick="decrement()">-</button>
-        </div>
         
-        <script>
-            function increment() {
-                const input = document.getElementById('customInput');
-                input.stepUp();
-            }
-        
-            function decrement() {
-                const input = document.getElementById('customInput');
-                input.stepDown();
-            }
-        </script>
     </main>
+    <script type="module" src="../js/favoritos.js"></script>
 </body>
 </html>

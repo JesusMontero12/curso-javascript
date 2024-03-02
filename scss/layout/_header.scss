@@ -65,8 +65,9 @@ header{
                     }
                     #plegableNotificacion{
                         display: none;
+                        margin: -4px 0px 0px -215px;
                         padding: 15px;
-                        width: 180px;
+                        width: 250px;
                         height: auto;
                         position: absolute;
                         background-color: $bg-1;
@@ -74,15 +75,28 @@ header{
                         border-bottom-right-radius: 5px;
                         box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.4);
                         z-index: 1;
+                        p{
+                            font-weight: 600;
+                        }
                         ul{
                             li{
                                 p{
+                                    font-size: 12px;
+                                    font-weight: 600;
+                                    color: $color-text-3;
                                     a{
                                         font-family: arimo;
-                                        font-size: 10px;
-                                        font-weight: 600;
-                                        color: $color-text-2;
+                                        font-size: 15px;
+                                        font-weight: 300;
+                                        color: blue;
+                                        text-decoration: underline;
                                     }
+                                }
+                                span{
+                                    text-align: right;
+                                    color: rgba(0, 0, 0, 0.5);
+                                    font-weight: 600;
+                                    font-size: 10px;
                                 }
                             }
                         }

@@ -7,102 +7,101 @@ import { burbujaBag } from "./burujaNotificaciones.js";
 export function loMasVendido() {
   const aggProductos = document.getElementById("productos");
 
-db_productos.forEach((producto) => {
-  const masVendidos = producto.cntVendido >= 60;
+  db_productos.forEach((producto) => {
+    const masVendidos = producto.cntVendido >= 60;
 
-  if (masVendidos) {
-    const btnAdd = createAddButton();
-    const sale = producto.sale ? createSaleElement() : '';
-    const elementoDescuento = producto.desc > 0 ? `<span>-${producto.desc}%</span>` : '';
-    const descuento = producto.precio.toFixed(3) - (producto.precio.toFixed(3) / 100) * producto.desc;
-    const precioDesc = producto.desc > 0 ? `<p>${descuento.toFixed(3)}</p>` : `<p>${producto.precio.toFixed(3)}</p>`;
-    const precio = producto.desc > 0 ? `<p>${producto.precio.toFixed(3)}</p>` : `<br>`;
+    if (masVendidos) {
+      const btnAdd = crearBtnAgregar();
+      const sale = producto.sale ? crearElementoSale() : '';
+      const elementoDescuento = producto.desc > 0 ? `<span>-${producto.desc}%</span>` : '';
+      const descuento = producto.precio.toFixed(3) - (producto.precio.toFixed(3) / 100) * producto.desc;
+      const precioDesc = producto.desc > 0 ? `<p>${descuento.toFixed(3)}</p>` : `<p>${producto.precio.toFixed(3)}</p>`;
+      const precio = producto.desc > 0 ? `<p>${producto.precio.toFixed(3)}</p>` : `<br>`;
 
-    let div = createProductElement(producto, sale, precioDesc, precio, elementoDescuento, btnAdd);
-    aggProductos.appendChild(div);
+      let div = crearElementoProducto(producto, sale, precioDesc, precio, elementoDescuento, btnAdd);
+      aggProductos.appendChild(div);
 
-    btnAdd.addEventListener("click", function (evt) {
-      evt.preventDefault();
-      const idProduc = producto.id;
-      const producBag = JSON.parse(localStorage.getItem("productos")) || [];
-      const producAggdo = producBag.find((producto) => producto.id === idProduc);
-      let cantidaAggBag = 1;
+      btnAdd.addEventListener("click", function (evt) {
+        evt.preventDefault();
+        const idProduc = producto.id;
+        const producBag = JSON.parse(localStorage.getItem("productos")) || [];
+        const producAggdo = producBag.find((producto) => producto.id === idProduc);
+        let cantidaAggBag = 1;
 
-      function modal(titulo, text) {
-        Swal.fire({
-          title: titulo,
-          text: text,
-          icon: "success",
-        });
+        function modal(titulo, text) {
+          Swal.fire({
+            title: titulo,
+            text: text,
+            icon: "success",
+          });
 
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: titulo,
-          text: text,
-          showConfirmButton: false,
-          timer: 2000
-        });
-      }
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: titulo,
+            text: text,
+            showConfirmButton: false,
+            timer: 2000
+          });
+        }
 
-      if (producAggdo) {
-        producAggdo.cantAgg += 1;
-        cantidaAggBag += parseInt(Number(producAggdo.cantAgg));
-        modal("¡Excelente!", "se sumó otra cantidad al producto.");
-      } else {
-        producBag.push({
-          id: idProduc,
-          nombre: producto.nombre,
-          precio: producto.precio.toFixed(3),
-          imagen: producto.imagen.map(imagen => `.${imagen}`),
-          sale: producto.sale,
-          descuento: producto.desc,
-          stock: producto.stock,
-          cantAgg: cantidaAggBag,
-          descripcion: producto.descripcion,
-        });
-        modal("¡Excelente!", "El producto se agregó a la bolsa exitosamente.");
-      }
-      localStorage.setItem("productos", JSON.stringify(producBag));
-      console.log(producBag);
-      burbujaBag();
-    });
+        if (producAggdo) {
+          producAggdo.cantAgg += 1;
+          cantidaAggBag += parseInt(Number(producAggdo.cantAgg));
+          modal("¡Excelente!", "se sumó otra cantidad al producto.");
+        } else {
+          producBag.push({
+            id: idProduc,
+            nombre: producto.nombre,
+            precio: producto.precio.toFixed(3),
+            imagen: producto.imagen.map(imagen => `.${imagen}`),
+            sale: producto.sale,
+            descuento: producto.desc,
+            stock: producto.stock,
+            cantAgg: cantidaAggBag,
+            descripcion: producto.descripcion,
+          });
+          modal("¡Excelente!", "El producto se agregó a la bolsa exitosamente.");
+        }
+        localStorage.setItem("productos", JSON.stringify(producBag));
+        console.log(producBag);
+        burbujaBag();
+      });
+    }
+  });
+
+  function crearBtnAgregar() {
+    const btnAdd = document.createElement("a");
+    btnAdd.innerText = "Agregar";
+    btnAdd.className = "btnAdd";
+    return btnAdd;
   }
-});
 
-function createAddButton() {
-  const btnAdd = document.createElement("a");
-  btnAdd.innerText = "Agregar";
-  btnAdd.className = "btnAdd";
-  return btnAdd;
-}
+  function crearElementoSale() {
+    return `<span class="sale"><p>Sale</p><img src="./assets/icons/fire.png"></span>`;
+  }
 
-function createSaleElement() {
-  return `<span class="sale"><p>Sale</p><img src="./assets/icons/fire.png"></span>`;
-}
+  function crearElementoProducto(producto, sale, precioDesc, precio, elementoDescuento, btnAdd) {
+    const div = document.createElement("a");
+    div.innerHTML = `
+      ${sale}            
+      <div class="cuerpo">
+          <img src="${producto.imagen[0]}" alt="${producto.nombre}">
+      </div>
+      <div class="titulo">
+          <h3>${producto.nombre}</h3>
+      </div>
+      <div class="precio_descuento">
+          ${precioDesc}
+          ${elementoDescuento}
+      </div>
+      <div class="precio">
+          ${precio}
+      </div>`;
+    div.appendChild(btnAdd);
 
-function createProductElement(producto, sale, precioDesc, precio, elementoDescuento, btnAdd) {
-  const div = document.createElement("a");
-  div.innerHTML = `
-    ${sale}            
-    <div class="cuerpo">
-        <img src="${producto.imagen[0]}" alt="${producto.nombre}">
-    </div>
-    <div class="titulo">
-        <h3>${producto.nombre}</h3>
-    </div>
-    <div class="precio_descuento">
-        ${precioDesc}
-        ${elementoDescuento}
-    </div>
-    <div class="precio">
-        ${precio}
-    </div>`;
-  div.appendChild(btnAdd);
-
-  return div;
-}
-
+    return div;
+  }
 }
 
 export function todoslosproductos() {
@@ -113,13 +112,13 @@ export function todoslosproductos() {
     if (categoria == null) {
       db_productos.forEach((producto) => {
         // Crear elementos HTML para el producto
-        const sale = producto.sale ? createSaleElement() : '';
+        const sale = producto.sale ? crearElementoSale() : '';
         const elementoDescuento = producto.desc > 0 ? `<span>-${producto.desc}%</span>` : '';
         const descuento = producto.precio.toFixed(3) - (producto.precio.toFixed(3) / 100) * producto.desc;
         const precioDesc = producto.desc > 0 ? `<p>${descuento.toFixed(3)}</p>` : `<p>${producto.precio.toFixed(3)}</p>`;
         const precio = producto.desc > 0 ? `<p>${producto.precio.toFixed(3)}</p>` : `<br>`;
 
-        const div = createProductElement(producto, sale, precioDesc, precio, elementoDescuento);
+        const div = crearElementoProductos(producto, sale, precioDesc, precio, elementoDescuento);
         aggProductos.appendChild(div);
 
         // Elementos para el carrusel
@@ -134,16 +133,15 @@ export function todoslosproductos() {
       const categoria = params.get('categoria');
       const productosFiltrados = db_productos.filter(productoCat => productoCat.categoria.toLowerCase().replace(/\s/g, '') === categoria.toLowerCase().replace(/\s/g, ''));
       
-
       if (productosFiltrados.length > 0) {
         productosFiltrados.forEach((productoCat) => {
-          const sale = productoCat.sale ? createSaleElement() : '';
+          const sale = productoCat.sale ? crearElementoSale() : '';
           const elementoDescuento = productoCat.desc > 0 ? `<span>-${productoCat.desc}%</span>` : '';
           const descuento = productoCat.precio.toFixed(3) - (productoCat.precio.toFixed(3) / 100) * productoCat.desc;
           const precioDesc = productoCat.desc > 0 ? `<p>${descuento.toFixed(3)}</p>` : `<p>${productoCat.precio.toFixed(3)}</p>`;
           const precio = productoCat.desc > 0 ? `<p>${productoCat.precio.toFixed(3)}</p>` : `<br>`;
 
-          const div = createProductElement(productoCat, sale, precioDesc, precio, elementoDescuento);
+          const div = crearElementoProductos(productoCat, sale, precioDesc, precio, elementoDescuento);
           aggProductos.appendChild(div);
           console.log(div);
 
@@ -161,55 +159,55 @@ export function todoslosproductos() {
       }
   }  
 
-function cambiarImagen(btnSiguiente, btnAnterior, imagenes, i, productId) {
-  btnSiguiente.addEventListener('click', (e) => {
-    e.preventDefault();
-      i = (i + 1) % imagenes.length;
-      actualizarImagen(productId);
-  });
+  function cambiarImagen(btnSiguiente, btnAnterior, imagenes, i, productId) {
+    btnSiguiente.addEventListener('click', (e) => {
+      e.preventDefault();
+        i = (i + 1) % imagenes.length;
+        actualizarImagen(productId);
+    });
 
-  btnAnterior.addEventListener('click', (e) => {
-    e.preventDefault();
-      i = (i - 1 + imagenes.length) % imagenes.length;
-      actualizarImagen(productId);
-  });
+    btnAnterior.addEventListener('click', (e) => {
+      e.preventDefault();
+        i = (i - 1 + imagenes.length) % imagenes.length;
+        actualizarImagen(productId);
+    });
 
-  function actualizarImagen(productId) {
-      const imagenCarrusel = document.getElementById(`img_${productId}`);
-      imagenCarrusel.src = `../${imagenes[i]}`;
+    function actualizarImagen(productId) {
+        const imagenCarrusel = document.getElementById(`img_${productId}`);
+        imagenCarrusel.src = `../${imagenes[i]}`;
+    }
   }
-}
-  
-function createSaleElement() {
-  return `<span class="sale"><p>Sale</p><img src="../assets/icons/fire.png"></span>`;
-}
+    
+  function crearElementoSale() {
+    return `<span class="sale"><p>Sale</p><img src="../assets/icons/fire.png"></span>`;
+  }
 
-function createProductElement(producto, sale, precioDesc, precio, elementoDescuento) {
-  const div = document.createElement("a");
-  div.href = "#";
-  div.innerHTML = `
-    ${sale}            
-    <div class="cuerpo">
-      <div class="btnsCambiar">
-        <label id="anterior_${producto.id}" class="FlechaImgizquierda">&#8249;</label>
-        <label id="siguiente_${producto.id}" class="FlechaImgDerecha">&#8250;</label>
+  function crearElementoProductos(producto, sale, precioDesc, precio, elementoDescuento) {
+    const div = document.createElement("a");
+    div.href = "#";
+    div.innerHTML = `
+      ${sale}            
+      <div class="cuerpo">
+        <div class="btnsCambiar">
+          <label id="anterior_${producto.id}" class="FlechaImgizquierda">&#8249;</label>
+          <label id="siguiente_${producto.id}" class="FlechaImgDerecha">&#8250;</label>
+        </div>
+        <img class="imgProducto" id="img_${producto.id}" src=".${producto.imagen[0]}" alt="${producto.nombre}">
       </div>
-      <img class="imgProducto" id="img_${producto.id}" src=".${producto.imagen[0]}" alt="${producto.nombre}">
-    </div>
-    <div class="content_text">
-        <h3>${producto.nombre}</h3>
-        <p>${producto.descripcion}</p>
-    </div>
-    <div class="precio_descuento">
-        ${precioDesc}
-        ${elementoDescuento}
-    </div>
-    <div class="precio">
-        ${precio}
-    </div>`;
+      <div class="content_text">
+          <h3>${producto.nombre}</h3>
+          <p>${producto.descripcion}</p>
+      </div>
+      <div class="precio_descuento">
+          ${precioDesc}
+          ${elementoDescuento}
+      </div>
+      <div class="precio">
+          ${precio}
+      </div>`;
 
-  return div;
-}
+    return div;
+  }
 }
 
 export function mostrarProductosBag() {
@@ -238,7 +236,6 @@ export function mostrarProductosBag() {
     subTotal(productos);
     }    
   
-  
   function crearElementoSale() {
       return `<span class="sale"><p>Sale</p><img src="../assets/icons/fire.png"></span>`;
   }
@@ -255,7 +252,6 @@ export function mostrarProductosBag() {
       return `<p id="precioCantidad">$ ${Number(cantAgg * precioDesc).toFixed(3)}</p>`;
   }
 
-  
   function crearElementoProductos(producto, sale, elementoDescuento, precioDesc, totalProdCant) {
       const div = document.createElement("div");
       div.className = "grid";
@@ -348,7 +344,6 @@ export function mostrarProductosBag() {
     const elementoIva = document.getElementById('iva');    
     const spanIva = document.createElement('span');
     const numeroSpans = elementoIva.getElementsByTagName('span');
-
      
     for (let i = numeroSpans.length - 1; i >= 0; i--) {
       elementoIva.removeChild(numeroSpans[i]);
@@ -408,8 +403,8 @@ export function mostrarProductosBag() {
           confirmButtonText: "Si, eliminar!",
           cancelButtonText: "No, cancelar!",
           reverseButtons: true
-        }).then((result) => {
-          if (result.isConfirmed) {
+        }).then((resultado) => {
+          if (resultado.isConfirmed) {
             const productosGuardados = localStorage.getItem("productos");
             const productos = JSON.parse(productosGuardados) || [];
             const productoEliminar = productos.filter((producto)=> producto.id !== id);
@@ -424,7 +419,7 @@ export function mostrarProductosBag() {
                 location.reload();
               }
             });            
-          } else if (result.dismiss === Swal.DismissReason.cancel) {
+          } else if (resultado.dismiss === Swal.DismissReason.cancel) {
             swal.fire({
               title: "Cancelado",
               text: "Tu producto seguirá en la bolsa",
