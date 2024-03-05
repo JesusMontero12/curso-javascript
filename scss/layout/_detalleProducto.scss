@@ -1,0 +1,108 @@
+main{
+    .content_producto_detalle{
+        width: 90%;
+        margin: 20px auto;
+        box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.5);
+        .productos{
+            display: flex;
+            padding: 50px;
+            .cuerpo{                        
+                width: 500px;
+                height: 500px;
+                overflow: hidden;
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+            .content_info{
+                width: 700px;
+                display: flex;
+                flex-direction: column;
+                padding: 10px;
+                .titulo{
+                    width: 100%;
+                    h3{
+                        text-align: left;
+                        font-family: arimo;
+                        font-size: 40px;
+                        color: $color-text-3;
+                        span{
+                            margin-left: 10px;
+                            padding: .3125rem;
+                            border-radius: .125rem;
+                            font-family: arimo;
+                            font-size: 16px;
+                            color: $color-text-1;
+                            background-color: red;
+                        }
+                    }                     
+                    p{
+                        margin: 15px 0px 10px 0px;
+                        text-align: left;
+                        font-family: arimo;
+                        font-size: 25px;
+                        color: $color-text-3;
+                    }
+                }
+                .precio_descuento{
+                    p{
+                        font-family: montserrat;
+                        font-size: 1.25rem;
+                        font-weight: 600;
+                        color: $color-text-3;
+                    }    
+                    
+                }
+                .precio{
+                    p{
+                        font-family: montserrat;
+                        font-size: 1rem;
+                        font-weight: 600;
+                        color: rgba(0,0,0,.5);
+                        text-decoration: line-through;
+                    }
+                }
+                .tallas{
+                    margin: 10px 0px;
+                    ul{
+                        display: flex;
+                        li{
+                            list-style: none;
+                            margin: 2px;
+                            padding: 5px;
+                            border: 1px solid $bg-3;
+                            border-radius: 5px;
+                        }
+                        li:hover{
+                            cursor: pointer;
+                            border: 1px solid $bg-1;
+                            color: $color-text-1;
+                            background-color: $bg-2;
+                        }
+                    }
+                }
+                .btnAdd{
+                    width: 200px;
+                    height: 40px;
+                    padding: 10px 10px;
+                    text-align: center;
+                    font-family: Montserrat;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    text-decoration: none;
+                    color: $color-text-1;
+                    background-color: $bg-4;
+                    border-style: none;
+                    border-radius: .3125rem;
+                }
+                .btnAdd:hover{
+                    cursor: pointer;
+                    transition: 0.2s;
+                    transform: scale(1.05);
+                }
+            }
+        }
+    }
+}

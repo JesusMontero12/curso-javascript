@@ -1,75 +1,84 @@
-//importamos objeto que tenemos como base de datos
-import { db_productos } from "./productos.js";
 //importamos funcion de la burbuja de notificaciones de la bolsa
 import { burbujaBag } from "./burujaNotificaciones.js";
+const urlJSON = "../../data/data.json";
 
 //Mostramos los prodcutos mas vendidos
 export function loMasVendido() {
   const aggProductos = document.getElementById("productos");
+  //solicitud para obtener json
+  fetch(urlJSON)
+  .then((response) => response.json())
+  .then((data) => {
+    data.forEach((producto) => {
+    //validamos si el producto tiene mas de 60 ventas concretadas
+      const masVendidos = producto.cntVendido >= 60;
 
-  db_productos.forEach((producto) => {
-    const masVendidos = producto.cntVendido >= 60;
+      if (masVendidos) {
+        // Crear elementos HTML para el producto
+        const btnAdd = crearBtnAgregar();
+        const sale = producto.sale ? crearElementoSale() : '';
+        const elementoDescuento = producto.desc > 0 ? `<span>-${producto.desc}%</span>` : '';
+        const descuento = producto.precio.toFixed(3) - (producto.precio.toFixed(3) / 100) * producto.desc;
+        const precioDesc = producto.desc > 0 ? `<p>${descuento.toFixed(3)}</p>` : `<p>${producto.precio.toFixed(3)}</p>`;
+        const precio = producto.desc > 0 ? `<p>${producto.precio.toFixed(3)}</p>` : `<br>`;
+  
+        let div = crearElementoProducto(producto, sale, precioDesc, precio, elementoDescuento, btnAdd);
+        aggProductos.appendChild(div);
+        
+        //evento click para agregar un productos al carrito
+        btnAdd.addEventListener("click", function (evt) {
+          evt.preventDefault();
+          const idProduc = producto.id;
+          const producBag = JSON.parse(localStorage.getItem("productos")) || [];
+          const producAggdo = producBag.find((producto) => producto.id === idProduc);
+          let cantidaAggBag = 1;
+          
+          //ventana modal para mostrar mensajes
+          function modal(titulo, text) {
+            Swal.fire({
+              title: titulo,
+              text: text,
+              icon: "success",
+            });
+  
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: titulo,
+              text: text,
+              showConfirmButton: false,
+              timer: 2000
+            });
+          }
 
-    if (masVendidos) {
-      const btnAdd = crearBtnAgregar();
-      const sale = producto.sale ? crearElementoSale() : '';
-      const elementoDescuento = producto.desc > 0 ? `<span>-${producto.desc}%</span>` : '';
-      const descuento = producto.precio.toFixed(3) - (producto.precio.toFixed(3) / 100) * producto.desc;
-      const precioDesc = producto.desc > 0 ? `<p>${descuento.toFixed(3)}</p>` : `<p>${producto.precio.toFixed(3)}</p>`;
-      const precio = producto.desc > 0 ? `<p>${producto.precio.toFixed(3)}</p>` : `<br>`;
-
-      let div = crearElementoProducto(producto, sale, precioDesc, precio, elementoDescuento, btnAdd);
-      aggProductos.appendChild(div);
-
-      btnAdd.addEventListener("click", function (evt) {
-        evt.preventDefault();
-        const idProduc = producto.id;
-        const producBag = JSON.parse(localStorage.getItem("productos")) || [];
-        const producAggdo = producBag.find((producto) => producto.id === idProduc);
-        let cantidaAggBag = 1;
-
-        function modal(titulo, text) {
-          Swal.fire({
-            title: titulo,
-            text: text,
-            icon: "success",
-          });
-
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: titulo,
-            text: text,
-            showConfirmButton: false,
-            timer: 2000
-          });
-        }
-
-        if (producAggdo) {
-          producAggdo.cantAgg += 1;
-          cantidaAggBag += parseInt(Number(producAggdo.cantAgg));
-          modal("¡Excelente!", "se sumó otra cantidad al producto.");
-        } else {
-          producBag.push({
-            id: idProduc,
-            nombre: producto.nombre,
-            precio: producto.precio.toFixed(3),
-            imagen: producto.imagen.map(imagen => `.${imagen}`),
-            sale: producto.sale,
-            descuento: producto.desc,
-            stock: producto.stock,
-            cantAgg: cantidaAggBag,
-            descripcion: producto.descripcion,
-          });
-          modal("¡Excelente!", "El producto se agregó a la bolsa exitosamente.");
-        }
-        localStorage.setItem("productos", JSON.stringify(producBag));
-        console.log(producBag);
-        burbujaBag();
-      });
-    }
+          //validamos que el producto este en el carrito y agregue cantidad, si no agrega el producto
+          if (producAggdo) {
+            producAggdo.cantAgg += 1;
+            cantidaAggBag += parseInt(Number(producAggdo.cantAgg));
+            modal("¡Excelente!", "se sumó otra cantidad al producto.");
+          } else {
+            producBag.push({
+              id: idProduc,
+              nombre: producto.nombre,
+              precio: producto.precio.toFixed(3),
+              imagen: producto.imagen.map(imagen => `.${imagen}`),
+              sale: producto.sale,
+              descuento: producto.desc,
+              stock: producto.stock,
+              cantAgg: cantidaAggBag,
+              descripcion: producto.descripcion,
+            });
+            modal("¡Excelente!", "El producto se agregó a la bolsa exitosamente.");
+          }
+          localStorage.setItem("productos", JSON.stringify(producBag));
+          console.log(producBag);
+          burbujaBag();
+        });
+      }
+    });
   });
 
+  //crear botón agregar 
   function crearBtnAgregar() {
     const btnAdd = document.createElement("a");
     btnAdd.innerText = "Agregar";
@@ -77,12 +86,15 @@ export function loMasVendido() {
     return btnAdd;
   }
 
+  //crear elemento sale 
   function crearElementoSale() {
     return `<span class="sale"><p>Sale</p><img src="./assets/icons/fire.png"></span>`;
   }
 
+  //crear productos de manera dinamica
   function crearElementoProducto(producto, sale, precioDesc, precio, elementoDescuento, btnAdd) {
     const div = document.createElement("a");
+    div.href = `./pages/detalle_producto.html?producto=${producto.id}`;
     div.innerHTML = `
       ${sale}            
       <div class="cuerpo">
@@ -104,13 +116,18 @@ export function loMasVendido() {
   }
 }
 
+//Trae todos los elementos para la tienda
 export function todoslosproductos() {
   const aggProductos = document.getElementById("productos");
   const parametro = new URLSearchParams(window.location.search);
   const categoria = parametro.get('categoria');
+  let i = 0;
 
-    if (categoria == null) {
-      db_productos.forEach((producto) => {
+  if (categoria == null) {
+    fetch(urlJSON)
+    .then((response) => response.json())
+    .then((data) => {
+      data.forEach((producto) => {
         // Crear elementos HTML para el producto
         const sale = producto.sale ? crearElementoSale() : '';
         const elementoDescuento = producto.desc > 0 ? `<span>-${producto.desc}%</span>` : '';
@@ -124,67 +141,84 @@ export function todoslosproductos() {
         // Elementos para el carrusel
         const btnAnterior = document.getElementById(`anterior_${producto.id}`);
         const btnSiguiente = document.getElementById(`siguiente_${producto.id}`);
-        let i = 0;
+        
 
         cambiarImagen(btnSiguiente, btnAnterior, producto.imagen, i, producto.id);
       });
-    } else {
-      const params = new URLSearchParams(window.location.search);
-      const categoria = params.get('categoria');
-      const productosFiltrados = db_productos.filter(productoCat => productoCat.categoria.toLowerCase().replace(/\s/g, '') === categoria.toLowerCase().replace(/\s/g, ''));
-      
-      if (productosFiltrados.length > 0) {
-        productosFiltrados.forEach((productoCat) => {
-          const sale = productoCat.sale ? crearElementoSale() : '';
-          const elementoDescuento = productoCat.desc > 0 ? `<span>-${productoCat.desc}%</span>` : '';
-          const descuento = productoCat.precio.toFixed(3) - (productoCat.precio.toFixed(3) / 100) * productoCat.desc;
-          const precioDesc = productoCat.desc > 0 ? `<p>${descuento.toFixed(3)}</p>` : `<p>${productoCat.precio.toFixed(3)}</p>`;
-          const precio = productoCat.desc > 0 ? `<p>${productoCat.precio.toFixed(3)}</p>` : `<br>`;
+    });
+  } else {
+    const productoFiltradoHeader = (categoria) => {      
+      //solicitud para obtener json
+      fetch(urlJSON)
+        .then(response => response.json())
+        .then(data => {
+          // filtrado de productos por categorias (menu de filtros del header)
+          const productosFiltrados = data.filter(producto => 
+            producto.categoria.toLowerCase().replace(/\s/g, '') === categoria.toLowerCase().replace(/\s/g, '')
+          );
+          //validacion de producto filtrado
+          if (productosFiltrados.length > 0) {
+            //recorremos todos los productos filtrados
+            productosFiltrados.forEach((productoCat) => {
+              //varialbles y funciones para agregar productos de manera dinamica
+              const sale = productoCat.sale ? crearElementoSale() : '';
+              const elementoDescuento = productoCat.desc > 0 ? `<span>-${productoCat.desc}%</span>` : '';
+              const descuento = productoCat.precio.toFixed(3) - (productoCat.precio.toFixed(3) / 100) * productoCat.desc;
+              const precioDesc = productoCat.desc > 0 ? `<p>${descuento.toFixed(3)}</p>` : `<p>${productoCat.precio.toFixed(3)}</p>`;
+              const precio = productoCat.desc > 0 ? `<p>${productoCat.precio.toFixed(3)}</p>` : `<br>`;
+    
+              const div = crearElementoProductos(productoCat, sale, precioDesc, precio, elementoDescuento);
+              aggProductos.appendChild(div);
+              console.log(div);
+    
+              // Elementos para el carrusel
+              const btnAnterior = document.getElementById(`anterior_${productoCat.id}`);
+              const btnSiguiente = document.getElementById(`siguiente_${productoCat.id}`);
+              console.log(btnAnterior);
+              console.log(btnSiguiente);
+              let i = 0;
+    
+              cambiarImagen(btnSiguiente, btnAnterior, productoCat.imagen, i, productoCat.id);
+            });        
+          } else {
+            contenedorResult.innerHTML = '<p>No se encontraron productos para esta categoría</p>';
+          }
 
-          const div = crearElementoProductos(productoCat, sale, precioDesc, precio, elementoDescuento);
-          aggProductos.appendChild(div);
-          console.log(div);
-
-          // Elementos para el carrusel
-          const btnAnterior = document.getElementById(`anterior_${productoCat.id}`);
-          const btnSiguiente = document.getElementById(`siguiente_${productoCat.id}`);
-          console.log(btnAnterior);
-          console.log(btnSiguiente);
-          let i = 0;
-
-          cambiarImagen(btnSiguiente, btnAnterior, productoCat.imagen, i, productoCat.id);
-        });        
-      } else {
-        contenedorResult.innerHTML = '<p>No se encontraron productos para esta categoría</p>';
-      }
+        });
+    };      
+    productoFiltradoHeader(categoria);
   }  
-
+  //funcion para cambiar img. evento click 
   function cambiarImagen(btnSiguiente, btnAnterior, imagenes, i, productId) {
+    //botón para cambiar hacia la derecha (evento Click)
     btnSiguiente.addEventListener('click', (e) => {
       e.preventDefault();
         i = (i + 1) % imagenes.length;
         actualizarImagen(productId);
     });
-
+    //botón para cambiar hacia la izquierda (evento Click)
     btnAnterior.addEventListener('click', (e) => {
       e.preventDefault();
         i = (i - 1 + imagenes.length) % imagenes.length;
         actualizarImagen(productId);
     });
 
+    //funcion para mostrar la imagen actual
     function actualizarImagen(productId) {
         const imagenCarrusel = document.getElementById(`img_${productId}`);
         imagenCarrusel.src = `../${imagenes[i]}`;
     }
   }
-    
+  
+  //crear elemento sale html
   function crearElementoSale() {
     return `<span class="sale"><p>Sale</p><img src="../assets/icons/fire.png"></span>`;
   }
 
+  //crear cards de productos de manera dinamica
   function crearElementoProductos(producto, sale, precioDesc, precio, elementoDescuento) {
     const div = document.createElement("a");
-    div.href = "#";
+    div.href = `./detalle_producto.html?producto=${producto.id}`;
     div.innerHTML = `
       ${sale}            
       <div class="cuerpo">
@@ -204,54 +238,65 @@ export function todoslosproductos() {
       </div>
       <div class="precio">
           ${precio}
-      </div>`;
+      </div>
+      
+      `;
 
     return div;
   }
 }
-
+  
+//trae todos los productos guardados en el localStorage para el carrito
 export function mostrarProductosBag() {
   const productosGuardados = localStorage.getItem("productos");
   const productos = JSON.parse(productosGuardados) || [];
-
   const listProductos = document.getElementById("productos");
   const detalle = document.getElementById("content_productos");
-  
-    if (productos.length == 0) {
-      listProductos.innerHTML = `<p>No tienes ningun producto agregado a la bolsa.<p>`;
-    } else {      
-      productos.forEach((producto) => {
-        const sale = producto.sale ? crearElementoSale() : '';
-        const elementoDescuento = crearElementoDescuento(producto.descuento);
-        const precioDesc = calcularPrecioDescuento(producto.precio, producto.descuento);
-        const totalProdCant = calcularTotalProductoCantidad(producto.cantAgg, precioDesc);
-        const div = crearElementoProductos(producto, sale, elementoDescuento, precioDesc, totalProdCant);
-        listProductos.appendChild(div);        
 
-        EventoCambiarCantidad(detalle, div, precioDesc, producto.id);
-        eliminarProductoBag(div, producto.id, producto.imagen);        
-      });
+  //validamos si hay algun producto en el localStorage
+  if (productos.length == 0) {
+    listProductos.innerHTML = `<p>No tienes ningun producto agregado a la bolsa.<p>`;
+  } else {      
+    //recorremos todos los productos del localStorage
+    productos.forEach((producto) => {
+      //variables y funciones para mostrar los productos de manera dinamica
+      const sale = producto.sale ? crearElementoSale() : '';
+      const elementoDescuento = crearElementoDescuento(producto.descuento);
+      const precioDesc = calcularPrecioDescuento(producto.precio, producto.descuento);
+      const totalProdCant = calcularTotalProductoCantidad(producto.cantAgg, precioDesc);
+      const div = crearElementoProductos(producto, sale, elementoDescuento, precioDesc, totalProdCant);
+      listProductos.appendChild(div);        
+
+      EventoCambiarCantidad(detalle, div, precioDesc, producto.id);
+      eliminarProductoBag(div, producto.id, producto.imagen);        
+    });
+
     const total = crearDetalleTotal(productos.length);
     detalle.appendChild(total);
     subTotal(productos);
-    }    
+  }    
   
+  //crear elemento sale html
   function crearElementoSale() {
       return `<span class="sale"><p>Sale</p><img src="../assets/icons/fire.png"></span>`;
   }
   
+  //crea elemento descuento
   function crearElementoDescuento(descuento) {
       return descuento > 0 ? `<span>-${descuento}%</span>` : '';
   }
   
+  //funcion calcula el descuento si el producto lo tiene
   function calcularPrecioDescuento(precio, descuento) {
       return descuento > 0 ? precio - (precio / 100 * descuento) : precio;
   }
   
+  //crear calcula el tota
   function calcularTotalProductoCantidad(cantAgg, precioDesc) {
       return `<p id="precioCantidad">$ ${Number(cantAgg * precioDesc).toFixed(3)}</p>`;
   }
 
+  //crear cards de productos de manera dinamica
   function crearElementoProductos(producto, sale, elementoDescuento, precioDesc, totalProdCant) {
       const div = document.createElement("div");
       div.className = "grid";
@@ -282,6 +327,7 @@ export function mostrarProductosBag() {
       return div;
   }
   
+  //funcion evento cambiar cantidad
   function EventoCambiarCantidad(detalle, container, precioDesc, id) {
       const increment = container.querySelector(".increment");
       const decrement = container.querySelector(".decrement");
@@ -289,7 +335,8 @@ export function mostrarProductosBag() {
       increment.addEventListener("click", () => subirCantidad(container, precioDesc, id));
       decrement.addEventListener("click", () => bajarCantidad(container, precioDesc, id));
   }
-  
+
+  //funcion operacion subir cantidad
   function subirCantidad(container, precioDesc, id) {
       const input = container.querySelector('.cantidad-input');
       const precioCantidad = container.querySelector("#precioCantidad");
@@ -297,7 +344,8 @@ export function mostrarProductosBag() {
       input.stepUp();
       actualizarTotal(input, precioCantidad, precioDesc, id);
   }
-  
+
+  //funcion operacion bajar cantidad
   function bajarCantidad(container, precioDesc, id) {
       const input = container.querySelector('.cantidad-input');
       const precioCantidad = container.querySelector("#precioCantidad");
@@ -306,6 +354,7 @@ export function mostrarProductosBag() {
       actualizarTotal(input, precioCantidad, precioDesc, id);
   }
   
+  //actualiza el total segun la cantidad seleccionada
   function actualizarTotal(input, precioCantidad, precioDesc, id) {
       precioCantidad.innerText = `$ ${Number(input.value * precioDesc).toFixed(3)}`;
       const productos = JSON.parse(localStorage.getItem('productos')) || [];
@@ -318,6 +367,7 @@ export function mostrarProductosBag() {
       subTotal(productos);
   }
 
+  //funcion suma todos los precios de los productos 
   function subTotal(productos){
     let subTotal = Number(0);
     const elementoSubTotal = document.getElementById('subtotal');    
@@ -337,10 +387,10 @@ export function mostrarProductosBag() {
     iva(subTotal);
   }
 
+  //calcula el iva del totl de la compra
   function iva(subTotal) {
     let IvaPorcentaje = Number(0.19);
     let iva = IvaPorcentaje * subTotal;
-    
     const elementoIva = document.getElementById('iva');    
     const spanIva = document.createElement('span');
     const numeroSpans = elementoIva.getElementsByTagName('span');
@@ -353,13 +403,13 @@ export function mostrarProductosBag() {
     totalPagar(iva, subTotal);
   }
 
+  //calcula el monto total a pagar
   function totalPagar(iva, subTotal) {
     const total = iva + subTotal;
     const elementoTotal = document.getElementById('total');    
     const spanTotal = document.createElement('span');
     const numeroSpans = elementoTotal.getElementsByTagName('span');
 
-     
     for (let i = numeroSpans.length - 1; i >= 0; i--) {
       elementoTotal.removeChild(numeroSpans[i]);
     }
@@ -367,6 +417,7 @@ export function mostrarProductosBag() {
     elementoTotal.appendChild(spanTotal);  
   }
   
+  //funcion agrega elemento de manera diamica para el total de productos
   function crearDetalleTotal(CantidadProductos) {
       const total = document.createElement("div");
       total.className = "total";
@@ -382,10 +433,10 @@ export function mostrarProductosBag() {
             <button id="abrirModal">Ir a pagar</button>
           </div>
       `;
-      
       return total;
   } 
 
+  //elimina los productos segun el id
   function eliminarProductoBag(btn, id, imagen){
     const btnEliminar = btn.querySelector('.btnEliminar');   
     btnEliminar.addEventListener("click", () => {

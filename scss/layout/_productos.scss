@@ -267,22 +267,6 @@ main {
                                     text-decoration: line-through;
                                 }
                             }
-                            .btnAdd{
-                                padding: 5px 10px;
-                                font-family: Montserrat;
-                                font-size: 1rem;
-                                font-weight: 600;
-                                text-decoration: none;
-                                color: $color-text-3;
-                                background-color: yellow;
-                                border-style: none;
-                                border-radius: .3125rem;
-                            }
-                            .btnAdd:hover{
-                                cursor: pointer;
-                                transition: 0.2s;
-                                transform: scale(1.05);
-                            }
                         }
                         a:hover{
                             transition: .5s;
