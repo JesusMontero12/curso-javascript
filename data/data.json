@@ -17,6 +17,13 @@
     "sale": true,
     "desc": 25,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -37,6 +44,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -57,6 +71,13 @@
     "sale": true,
     "desc": 25,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -77,6 +98,13 @@
     "sale": true,
     "desc": 30,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -97,6 +125,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -117,6 +152,13 @@
     "sale": true,
     "desc": 15,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -137,6 +179,13 @@
     "sale": true,
     "desc": 25,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -157,6 +206,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -177,6 +233,13 @@
     "sale": true,
     "desc": 15,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -197,6 +260,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -217,6 +287,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -237,6 +314,13 @@
     "sale": true,
     "desc": 25,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -257,6 +341,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -277,6 +368,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -297,6 +395,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -317,6 +422,13 @@
     "sale": true,
     "desc": 12,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -337,6 +449,13 @@
     "sale": true,
     "desc": 50,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -357,6 +476,13 @@
     "sale": true,
     "desc": 15,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -377,6 +503,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -397,6 +530,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -417,6 +557,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -437,6 +584,13 @@
     "sale": true,
     "desc": 15,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -457,6 +611,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -477,6 +638,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -497,6 +665,13 @@
     "sale": true,
     "desc": 20,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -517,6 +692,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -537,6 +719,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -547,8 +736,8 @@
     "descripcion": "Blazer informal para un toque sofisticado.",
     "imagen": [
       "./assets/img/img-products/blazer-casual1-1.jpg",
-      "/assets/img/img-products/blazer-casual1-2.jpg",
-      "/assets/img/img-products/blazer-casual1-3.jpg"
+      "./assets/img/img-products/blazer-casual1-2.jpg",
+      "./assets/img/img-products/blazer-casual1-3.jpg"
     ],
     "inicial": 100,
     "stock": 45,
@@ -557,6 +746,13 @@
     "sale": true,
     "desc": 10,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -577,6 +773,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -597,6 +800,13 @@
     "sale": true,
     "desc": 15,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -617,6 +827,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -637,6 +854,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -657,6 +881,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -677,6 +908,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -687,8 +925,8 @@
     "descripcion": "Pantalón cargo con múltiples bolsillos.",
     "imagen": [
       "./assets/img/img-products/pantalon-cargo3-1.jpg",
-      "/assets/img/img-products/pantalon-cargo3-2.jpg",
-      "/assets/img/img-products/pantalon-cargo3-3.jpg"
+      "./assets/img/img-products/pantalon-cargo3-2.jpg",
+      "./assets/img/img-products/pantalon-cargo3-3.jpg"
     ],
     "inicial": 100,
     "stock": 18,
@@ -697,6 +935,13 @@
     "sale": true,
     "desc": 20,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -717,6 +962,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -737,6 +989,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -757,6 +1016,13 @@
     "sale": true,
     "desc": 15,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -777,6 +1043,13 @@
     "sale": true,
     "desc": 10,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -797,6 +1070,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -817,6 +1097,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -837,6 +1124,13 @@
     "sale": true,
     "desc": 15,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -857,6 +1151,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -877,6 +1178,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -897,6 +1205,13 @@
     "sale": true,
     "desc": 20,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -917,6 +1232,13 @@
     "sale": true,
     "desc": 15,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -937,6 +1259,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -957,6 +1286,13 @@
     "sale": true,
     "desc": 10,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -977,6 +1313,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -997,6 +1340,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -1017,6 +1367,13 @@
     "sale": true,
     "desc": 15,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -1037,6 +1394,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -1057,6 +1421,13 @@
     "sale": true,
     "desc": 10,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -1077,6 +1448,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -1097,6 +1475,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -1117,6 +1502,13 @@
     "sale": true,
     "desc": 20,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -1137,6 +1529,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -1157,6 +1556,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -1177,6 +1583,13 @@
     "sale": true,
     "desc": 10,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -1197,6 +1610,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -1217,6 +1637,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -1237,6 +1664,13 @@
     "sale": true,
     "desc": 15,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -1257,6 +1691,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -1267,8 +1708,8 @@
     "descripcion": "Blusa transparente para un look atrevido y elegante.",
     "imagen": [
       "./assets/img/img-products/blusa-transparente1-1.jpeg",
-      "/assets/img/img-products/blusa-transparente1-2.jpeg",
-      "/assets/img/img-products/blusa-transparente1-3.jpeg"
+      "./assets/img/img-products/blusa-transparente1-2.jpeg",
+      "./assets/img/img-products/blusa-transparente1-3.jpeg"
     ],
     "inicial": 100,
     "stock": 40,
@@ -1277,6 +1718,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -1297,6 +1745,13 @@
     "sale": true,
     "desc": 10,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -1317,6 +1772,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -1337,6 +1799,13 @@
     "sale": true,
     "desc": 15,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -1357,6 +1826,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -1377,6 +1853,13 @@
     "sale": true,
     "desc": 10,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -1397,6 +1880,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -1417,6 +1907,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -1437,6 +1934,13 @@
     "sale": true,
     "desc": 15,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -1457,6 +1961,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -1477,6 +1988,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -1497,6 +2015,13 @@
     "sale": true,
     "desc": 10,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -1517,6 +2042,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -1537,6 +2069,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -1557,6 +2096,13 @@
     "sale": true,
     "desc": 15,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -1577,6 +2123,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -1597,6 +2150,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -1617,6 +2177,13 @@
     "sale": true,
     "desc": 20,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -1637,6 +2204,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -1657,6 +2231,13 @@
     "sale": true,
     "desc": 15,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -1677,6 +2258,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -1697,6 +2285,13 @@
     "sale": true,
     "desc": 25,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -1717,6 +2312,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -1737,6 +2339,13 @@
     "sale": true,
     "desc": 10,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -1757,6 +2366,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -1777,6 +2393,13 @@
     "sale": true,
     "desc": 15,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -1797,6 +2420,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -1817,6 +2447,13 @@
     "sale": true,
     "desc": 20,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -1837,6 +2474,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -1857,6 +2501,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -1877,6 +2528,13 @@
     "sale": true,
     "desc": 15,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   },
   {
@@ -1897,6 +2555,13 @@
     "sale": false,
     "desc": 0,
     "cantAgg": 0,
+    "stockPorTalla": {
+      "s": 10,
+      "m": 15,
+      "l": 8,
+      "xl": 3,
+      "xxl": 2
+    },
     "talla": ["s", "m", "l", "xl", "xxl"]
   }
 ]

@@ -155,6 +155,8 @@ main {
                         margin: 5px;
                         padding: 5px;
                         a{
+                            display: flex;
+                            flex-direction: column;
                             width: 300px;
                             margin: 20px;
                             text-decoration: none;
@@ -266,6 +268,25 @@ main {
                                     color: rgba(0,0,0,.5);
                                     text-decoration: line-through;
                                 }
+                            }
+                            .btnAdd{
+                                width: 100px!important;
+                                margin: auto;
+                                padding: 5px 10px;
+                                font-family: Montserrat;
+                                font-size: 1rem;
+                                font-weight: 600;
+                                text-align: center;
+                                text-decoration: none;
+                                color: $color-text-1;
+                                background-color: $bg-4;
+                                border-style: none;
+                                border-radius: .3125rem;
+                            }
+                            .btnAdd:hover{
+                                cursor: pointer;
+                                transition: 0.2s;
+                                transform: scale(1.05);
                             }
                         }
                         a:hover{

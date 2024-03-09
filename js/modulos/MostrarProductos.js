@@ -1,5 +1,6 @@
 //importamos funcion de la burbuja de notificaciones de la bolsa
 import { burbujaBag } from "./burujaNotificaciones.js";
+import { animacionTallas } from "./animationHeader.js";
 const urlJSON = "../../data/data.json";
 
 //Mostramos los prodcutos mas vendidos
@@ -28,51 +29,52 @@ export function loMasVendido() {
         //evento click para agregar un productos al carrito
         btnAdd.addEventListener("click", function (evt) {
           evt.preventDefault();
-          const idProduc = producto.id;
-          const producBag = JSON.parse(localStorage.getItem("productos")) || [];
-          const producAggdo = producBag.find((producto) => producto.id === idProduc);
-          let cantidaAggBag = 1;
+          alert("mostrar modal con el producto antes de agregar al carrito");
+          // const idProduc = producto.id;
+          // const producBag = JSON.parse(localStorage.getItem("productos")) || [];
+          // const producAggdo = producBag.find((producto) => producto.id === idProduc);
+          // let cantidaAggBag = 1;
           
-          //ventana modal para mostrar mensajes
-          function modal(titulo, text) {
-            Swal.fire({
-              title: titulo,
-              text: text,
-              icon: "success",
-            });
+          // //ventana modal para mostrar mensajes
+          // function modal(titulo, text) {
+          //   Swal.fire({
+          //     title: titulo,
+          //     text: text,
+          //     icon: "success",
+          //   });
   
-            Swal.fire({
-              position: "top-end",
-              icon: "success",
-              title: titulo,
-              text: text,
-              showConfirmButton: false,
-              timer: 2000
-            });
-          }
+          //   Swal.fire({
+          //     position: "top-end",
+          //     icon: "success",
+          //     title: titulo,
+          //     text: text,
+          //     showConfirmButton: false,
+          //     timer: 2000
+          //   });
+          // }
 
-          //validamos que el producto este en el carrito y agregue cantidad, si no agrega el producto
-          if (producAggdo) {
-            producAggdo.cantAgg += 1;
-            cantidaAggBag += parseInt(Number(producAggdo.cantAgg));
-            modal("¡Excelente!", "se sumó otra cantidad al producto.");
-          } else {
-            producBag.push({
-              id: idProduc,
-              nombre: producto.nombre,
-              precio: producto.precio.toFixed(3),
-              imagen: producto.imagen.map(imagen => `.${imagen}`),
-              sale: producto.sale,
-              descuento: producto.desc,
-              stock: producto.stock,
-              cantAgg: cantidaAggBag,
-              descripcion: producto.descripcion,
-            });
-            modal("¡Excelente!", "El producto se agregó a la bolsa exitosamente.");
-          }
-          localStorage.setItem("productos", JSON.stringify(producBag));
-          console.log(producBag);
-          burbujaBag();
+          // //validamos que el producto este en el carrito y agregue cantidad, si no agrega el producto
+          // if (producAggdo) {
+          //   producAggdo.cantAgg += 1;
+          //   cantidaAggBag += parseInt(Number(producAggdo.cantAgg));
+          //   modal("¡Excelente!", "se sumó otra cantidad al producto.");
+          // } else {
+          //   producBag.push({
+          //     id: idProduc,
+          //     nombre: producto.nombre,
+          //     precio: producto.precio.toFixed(3),
+          //     imagen: producto.imagen.map(imagen => `.${imagen}`),
+          //     sale: producto.sale,
+          //     descuento: producto.desc,
+          //     stock: producto.stock,
+          //     cantAgg: cantidaAggBag,
+          //     descripcion: producto.descripcion,
+          //   });
+          //   modal("¡Excelente!", "El producto se agregó a la bolsa exitosamente.");
+          // }
+          // localStorage.setItem("productos", JSON.stringify(producBag));
+          // console.log(producBag);
+          // burbujaBag();
         });
       }
     });
@@ -121,6 +123,7 @@ export function todoslosproductos() {
   const aggProductos = document.getElementById("productos");
   const parametro = new URLSearchParams(window.location.search);
   const categoria = parametro.get('categoria');
+  const btnAdd = document.getElementById('btnAdd');
   let i = 0;
 
   if (categoria == null) {
@@ -129,13 +132,14 @@ export function todoslosproductos() {
     .then((data) => {
       data.forEach((producto) => {
         // Crear elementos HTML para el producto
+        const btnAdd = crearBtnAgregar();
         const sale = producto.sale ? crearElementoSale() : '';
         const elementoDescuento = producto.desc > 0 ? `<span>-${producto.desc}%</span>` : '';
         const descuento = producto.precio.toFixed(3) - (producto.precio.toFixed(3) / 100) * producto.desc;
         const precioDesc = producto.desc > 0 ? `<p>${descuento.toFixed(3)}</p>` : `<p>${producto.precio.toFixed(3)}</p>`;
         const precio = producto.desc > 0 ? `<p>${producto.precio.toFixed(3)}</p>` : `<br>`;
 
-        const div = crearElementoProductos(producto, sale, precioDesc, precio, elementoDescuento);
+        const div = crearElementoProductos(producto, sale, precioDesc, precio, elementoDescuento, btnAdd);
         aggProductos.appendChild(div);
 
         // Elementos para el carrusel
@@ -144,6 +148,10 @@ export function todoslosproductos() {
         
 
         cambiarImagen(btnSiguiente, btnAnterior, producto.imagen, i, producto.id);
+        btnAdd.addEventListener("click", function (evt) {
+          evt.preventDefault();
+          alert("mostrar modal con el producto antes de agregar al carrito");
+        });
       });
     });
   } else {
@@ -161,24 +169,26 @@ export function todoslosproductos() {
             //recorremos todos los productos filtrados
             productosFiltrados.forEach((productoCat) => {
               //varialbles y funciones para agregar productos de manera dinamica
+              const btnAdd = crearBtnAgregar();
               const sale = productoCat.sale ? crearElementoSale() : '';
               const elementoDescuento = productoCat.desc > 0 ? `<span>-${productoCat.desc}%</span>` : '';
               const descuento = productoCat.precio.toFixed(3) - (productoCat.precio.toFixed(3) / 100) * productoCat.desc;
               const precioDesc = productoCat.desc > 0 ? `<p>${descuento.toFixed(3)}</p>` : `<p>${productoCat.precio.toFixed(3)}</p>`;
               const precio = productoCat.desc > 0 ? `<p>${productoCat.precio.toFixed(3)}</p>` : `<br>`;
     
-              const div = crearElementoProductos(productoCat, sale, precioDesc, precio, elementoDescuento);
+              const div = crearElementoProductos(productoCat, sale, precioDesc, precio, elementoDescuento, btnAdd);
               aggProductos.appendChild(div);
-              console.log(div);
     
               // Elementos para el carrusel
               const btnAnterior = document.getElementById(`anterior_${productoCat.id}`);
               const btnSiguiente = document.getElementById(`siguiente_${productoCat.id}`);
-              console.log(btnAnterior);
-              console.log(btnSiguiente);
               let i = 0;
     
               cambiarImagen(btnSiguiente, btnAnterior, productoCat.imagen, i, productoCat.id);
+              btnAdd.addEventListener("click", function (evt) {
+                evt.preventDefault();
+                alert("mostrar modal con el producto antes de agregar al carrito");
+              });
             });        
           } else {
             contenedorResult.innerHTML = '<p>No se encontraron productos para esta categoría</p>';
@@ -187,7 +197,15 @@ export function todoslosproductos() {
         });
     };      
     productoFiltradoHeader(categoria);
-  }  
+  } 
+   //crear botón agregar 
+   function crearBtnAgregar() {
+    const btnAdd = document.createElement("a");
+    btnAdd.innerText = "Agregar";
+    btnAdd.className = "btnAdd";
+    return btnAdd;
+  }
+
   //funcion para cambiar img. evento click 
   function cambiarImagen(btnSiguiente, btnAnterior, imagenes, i, productId) {
     //botón para cambiar hacia la derecha (evento Click)
@@ -216,7 +234,7 @@ export function todoslosproductos() {
   }
 
   //crear cards de productos de manera dinamica
-  function crearElementoProductos(producto, sale, precioDesc, precio, elementoDescuento) {
+  function crearElementoProductos(producto, sale, precioDesc, precio, elementoDescuento, btnAdd) {
     const div = document.createElement("a");
     div.href = `./detalle_producto.html?producto=${producto.id}`;
     div.innerHTML = `
@@ -238,9 +256,9 @@ export function todoslosproductos() {
       </div>
       <div class="precio">
           ${precio}
-      </div>
-      
-      `;
+      </div>     
+    `;
+    div.appendChild(btnAdd);
 
     return div;
   }
@@ -267,7 +285,7 @@ export function mostrarProductosBag() {
       const div = crearElementoProductos(producto, sale, elementoDescuento, precioDesc, totalProdCant);
       listProductos.appendChild(div);        
 
-      EventoCambiarCantidad(detalle, div, precioDesc, producto.id);
+      EventoCambiarCantidad(div, precioDesc, producto.id);
       eliminarProductoBag(div, producto.id, producto.imagen);        
     });
 
@@ -328,7 +346,7 @@ export function mostrarProductosBag() {
   }
   
   //funcion evento cambiar cantidad
-  function EventoCambiarCantidad(detalle, container, precioDesc, id) {
+  function EventoCambiarCantidad(container, precioDesc, id) {
       const increment = container.querySelector(".increment");
       const decrement = container.querySelector(".decrement");
   
@@ -357,6 +375,8 @@ export function mostrarProductosBag() {
   //actualiza el total segun la cantidad seleccionada
   function actualizarTotal(input, precioCantidad, precioDesc, id) {
       precioCantidad.innerText = `$ ${Number(input.value * precioDesc).toFixed(3)}`;
+      console.log(precioDesc);
+      console.log(input.value);
       const productos = JSON.parse(localStorage.getItem('productos')) || [];
       const productoIdActualizarCantidad = productos.find(producto => producto.id === id);
 
@@ -482,4 +502,190 @@ export function mostrarProductosBag() {
       modal("¿Está seguro?", "¡Se eliminará el producto de la bolsa de compras!", imagen);
     });
   }
+}
+
+export function productoDetalle() {
+  const cardProducto = document.getElementById('productos');
+  const parametro = new URLSearchParams(window.location.search);
+  const idProducto = parametro.get('producto');
+
+  if (idProducto == null) {
+    cardProducto.innerHTML = `
+      <p>No se encontro el producto.</p>
+    `;
+  } else {
+    fetch(urlJSON)
+    .then((response) => response.json())
+    .then((data) => {
+      const productoFiltradoId = data.find((producto) => producto.id == idProducto);
+
+      if (productoFiltradoId){
+        const elementoDescuento = productoFiltradoId.desc > 0 ? `<span>-${productoFiltradoId.desc}%</span>` : '';
+        const precioDesc = calcularPrecioDescuento(productoFiltradoId.precio.toFixed(3), productoFiltradoId.desc.toFixed(3));    
+        const precio = productoFiltradoId.desc > 0 ? `<p>${productoFiltradoId.precio.toFixed(3)}</p>` : `<br>`;
+        const div = crearElementoProductos(productoFiltradoId, precioDesc, precio, elementoDescuento);
+        console.log(productoFiltradoId.imagen);
+        cardProducto.appendChild(div);
+        EventoCambiarCantidad(div, precioDesc);
+
+        // Elementos para el carrusel
+        const btnAnterior = document.getElementById(`anterior_${productoFiltradoId.id}`);
+        const btnSiguiente = document.getElementById(`siguiente_${productoFiltradoId.id}`);
+        let i = 0;
+
+        cambiarImagen(btnSiguiente, btnAnterior, productoFiltradoId.imagen, i, productoFiltradoId.id);
+        animacionTallas();
+      } else {
+        cardProducto.innerHTML = `
+          <p>No se encontro ningun producto con</p>
+        `;
+      }
+
+      //funcion calcula el descuento si el producto lo tiene
+      function calcularPrecioDescuento(precio, descuento) {
+        return descuento > 0 ? precio - (precio / 100 * descuento).toFixed(3) : Number(precio).toFixed(3);
+      }
+      
+       //funcion para cambiar img. evento click 
+       function cambiarImagen(btnSiguiente, btnAnterior, imagenes, i, productId) {
+        //botón para cambiar hacia la derecha (evento Click)
+        btnSiguiente.addEventListener('click', (e) => {
+          e.preventDefault();
+            i = (i + 1) % imagenes.length;
+            actualizarImagen(productId);
+        });
+
+        //botón para cambiar hacia la izquierda (evento Click)
+        btnAnterior.addEventListener('click', (e) => {
+          e.preventDefault();
+            i = (i - 1 + imagenes.length) % imagenes.length;
+            actualizarImagen(productId);
+        });
+
+        //funcion para mostrar la imagen actual
+        function actualizarImagen(productId) {
+            const imagenCarrusel = document.getElementById(`img_${productId}`);
+            imagenCarrusel.src = `../${imagenes[i]}`;
+        }
+      }
+
+      //crear cards de productos de manera dinamica
+      function crearElementoProductos(producto, precioDesc, precio, elementoDescuento) {
+        const div = document.createElement("div");
+        div.className = "productoDetallado";
+        div.innerHTML = `           
+          <div class="galeriaImg">
+              <ul>
+                  <li><img class="imgProductoMin" id="imgMin_${producto.id}" src=".${producto.imagen[0]}" alt="${producto.nombre}"></li>
+                  <li><img class="imgProductoMin" id="imgMin_${producto.id}" src=".${producto.imagen[1]}" alt="${producto.nombre}"></li>
+                  <li><img class="imgProductoMin" id="imgMin_${producto.id}" src=".${producto.imagen[2]}" alt="${producto.nombre}"></li>
+              </ul>
+          </div>
+          <div class="cuerpo">
+            <div class="btnsCambiar">
+              <label id="anterior_${producto.id}" class="FlechaImgizquierda">&#8249;</label>
+              <label id="siguiente_${producto.id}" class="FlechaImgDerecha">&#8250;</label>
+            </div>
+            <img class="imgProducto" id="img_${producto.id}" src=".${producto.imagen[0]}" alt="${producto.nombre}">
+          </div>
+          <div class="content_info">
+              <div class="titulo">
+                  <h3>${producto.nombre} ${elementoDescuento}</h3>
+                  <p>${producto.descripcion}</p>
+                  <ul>
+                      <li><img src="../assets/icons/estrella.png" alt=""></li>
+                      <li><img src="../assets/icons/estrella.png" alt=""></li>
+                      <li><img src="../assets/icons/estrella.png" alt=""></li>
+                      <li><img src="../assets/icons/estrella.png" alt=""></li>
+                      <li><img src="../assets/icons/estrella-dark.png" alt=""></li>
+                      <a href="#comentarios" for="comentarios">hay mas de 100 comentarios.</a>    
+                  </ul>
+              </div>
+              <div class="precio_descuento">
+                <p id="precioCantidad">${Number(precioDesc).toFixed(3)}</p>
+              </div>
+              <div class="precio">
+                  ${precio}
+              </div>
+              <div class="cantidad">
+                  <div class="btns-cantidad">
+                      <button class="decrement">-</button>
+                      <input type="number" class="cantidad-input" min="1" max="5" step="1" value="1">
+                      <button class="increment">+</button>
+                  </div>
+                  <p>limite de compra de este producto 5 unidades.</p> 
+              </div>   
+              <div class="tallas">
+              <div class="talla">
+                  <input id="u" type="checkbox">
+                  <label for="u" id="TallaU">U</label>
+                </div>
+                <div class="talla">
+                  <input id="s" type="checkbox">
+                  <label for="s" id="TallaS">S</label>
+                </div>
+                <div class="talla">
+                  <input id="m" type="checkbox">
+                  <label for="m" id="TallaM">M</label>
+                </div>
+                <div class="talla">
+                  <input id="l" type="checkbox">
+                  <label for="l" id="TallaL">L</label>
+                </div>
+                <div class="talla">
+                  <input id="xl" type="checkbox">
+                  <label for="xl" id="TallaXL">XL</label>
+                </div>
+                <div class="talla">
+                  <input id="xxl" type="checkbox">
+                  <label for="xxl" id="TallaXXL">XXL</label>
+                </div>
+              </div>
+              <div class="btnAction">
+                  <a href="" class="btnAdd">agregar</a>
+                  <img src="../assets/icons/heart.png" alt="">
+              </div>
+          </div>
+        `;
+        console.log(`.${producto.imagen[0]}`);
+        console.log(`.${producto.imagen[1]}`);
+        console.log(`.${producto.imagen[2]}`);
+        return div;
+      }
+
+      //funcion evento cambiar cantidad
+      function EventoCambiarCantidad(container, precioDesc) {
+          const increment = container.querySelector(".increment");
+          const decrement = container.querySelector(".decrement");
+
+          increment.addEventListener("click", () => subirCantidad(container, precioDesc));
+          decrement.addEventListener("click", () => bajarCantidad(container, precioDesc));
+      }
+
+      //funcion operacion subir cantidad
+      function subirCantidad(container, precioDesc) {
+          const input = container.querySelector('.cantidad-input');
+          const precioCantidad = container.querySelector("#precioCantidad");
+
+          input.stepUp();
+          actualizarTotal(input, precioCantidad, precioDesc);
+      }
+
+      //funcion operacion bajar cantidad
+      function bajarCantidad(container, precioDesc) {
+          const input = container.querySelector('.cantidad-input');
+          const precioCantidad = container.querySelector("#precioCantidad");
+
+          input.stepDown();
+          actualizarTotal(input, precioCantidad, precioDesc);
+      }
+
+      //actualiza el total segun la cantidad seleccionada
+      function actualizarTotal(input, precioCantidad, precioDesc) {
+          precioCantidad.innerText = `$ ${Number(input.value * precioDesc).toFixed(3)}`;
+          console.log(precioDesc);
+          console.log(input.value);
+      }
+    });  
+  };
 }
