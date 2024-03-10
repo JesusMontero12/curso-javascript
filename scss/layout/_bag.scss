@@ -92,7 +92,7 @@ main {
                 }
               }
               p {
-                margin: 0.625rem 0rem 1.5625rem 0rem;
+                margin: 0.625rem 0rem .3125rem 0rem;
               }
             }
             .precio_descuento {
@@ -169,7 +169,31 @@ main {
                 background-color: $color-text-3;
                 border: none;
               }
-            }            
+            } 
+            .tallas{
+              display: flex;
+              margin-top: 15px;
+              input{
+                  display: none;
+              }
+              label{
+                  margin: 2px;
+                  padding: 5px;
+                  border: 1px solid $bg-3;
+                  border-radius: 5px;
+              }
+              .labelTalla{
+                  border: 1px solid $bg-1;
+                  color: $color-text-1;
+                  background-color: $bg-4;
+              }
+              label:hover{
+                  cursor: pointer;
+                  border: 1px solid $bg-1;
+                  color: $color-text-1;
+                  background-color: $bg-2;
+              }
+            }           
           }
           .actionProduct {
             margin: auto;

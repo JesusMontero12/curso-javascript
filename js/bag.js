@@ -1,7 +1,7 @@
 import { mostrarProductosBag } from './modulos/MostrarProductos.js';
-import { VentanaModal } from './modulos/ModalPagoEnvio.js';
-import { mostrarNotificaciones } from './modulos/animationHeader.js';
+import { VentanaModalPagos } from './modulos/ventanasModales.js';
+import { mostrarNotificaciones } from './modulos/animaciones.js';
 
 mostrarProductosBag();
-VentanaModal();
+VentanaModalPagos();
 mostrarNotificaciones();

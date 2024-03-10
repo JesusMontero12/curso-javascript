@@ -1,4 +1,4 @@
-import { mostrarNotificaciones } from './modulos/animationHeader.js';
+import { mostrarNotificaciones } from './modulos/animaciones.js';
 import { productoDetalle } from './modulos/MostrarProductos.js';
 
 mostrarNotificaciones();

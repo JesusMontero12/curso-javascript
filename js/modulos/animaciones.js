@@ -33,41 +33,16 @@ export function mostrarNotificaciones() {
 }
 
 export function animacionTallas() {
-    const u = document.getElementById('u');
-    const tallaU = document.getElementById('TallaU');
-    const s = document.getElementById('s');
-    const tallaS = document.getElementById('TallaS');
-    const m = document.getElementById('m');
-    const tallaM = document.getElementById('TallaM');
-    const l = document.getElementById('l');
-    const tallaL = document.getElementById('TallaL');
-    const xl = document.getElementById('xl');
-    const tallaXL = document.getElementById('TallaXL');
-    const xxl = document.getElementById('xxl');
-    const tallaXXL = document.getElementById('TallaXXL');
-
-    u.addEventListener('click', () => {
-        tallaU.classList.toggle("labelTalla");
-    });
-
-    s.addEventListener('click', () => {
-        tallaS.classList.toggle("labelTalla");
-    });
-
-    m.addEventListener('click', () => {
-        tallaM.classList.toggle("labelTalla");
-    });
-
-    l.addEventListener('click', () => {
-        tallaL.classList.toggle("labelTalla");
-    });
-
-    xl.addEventListener('click', () => {
-        tallaXL.classList.toggle("labelTalla");
-    });
-
-    xxl.addEventListener('click', () => {
-        tallaXXL.classList.toggle("labelTalla");
-    });
-   
+    const checkboxes = document.querySelectorAll('.talla input[type="checkbox"]');
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('click', function() {
+            this.nextElementSibling.classList.toggle("labelTalla");
+            checkboxes.forEach(otherCheckbox => {
+                if (otherCheckbox !== this) {
+                    otherCheckbox.checked = false;
+                    otherCheckbox.nextElementSibling.classList.remove("labelTalla");
+                }
+            });
+        });
+    });   
 }

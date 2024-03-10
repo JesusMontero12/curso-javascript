@@ -93,13 +93,13 @@ main{
                             font-weight: bold;
                             color: $color-text-3;
                             position: absolute;
-                            z-index: 2;
+                            z-index: 1;
                         }
                         img{
                             width: 3.125rem;
                             height: 3.125rem;
                             position: absolute;
-                            z-index: 1;
+                            z-index: 0;
                         }
                     }
                     .cuerpo{                        
@@ -164,6 +164,310 @@ main{
                         cursor: pointer;
                         transition: 0.2s;
                         transform: scale(1.05);
+                    }
+                }
+            }
+        }
+    }
+    .productoDetallado{
+        display: none; 
+        position: fixed; 
+        z-index: 1;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        inset: 0;
+        width: 100%;
+        height: 100%; 
+        overflow: auto;
+        background-color: rgba(0,0,0,0.5); 
+        .modalContent {
+            width: 80%;
+            margin: auto;
+            padding: 20px;      
+            position: relative;
+            border-radius: 5px;
+            background-color: white;      
+            -webkit-animation-name: animarsuperior;
+            -webkit-animation-duration: 0.5s;
+            animation-name: animarsuperior;
+            animation-duration: 0.5s;
+            .cerrar {
+                font-size: 34px;
+            }
+            .cerrar:hover{
+                cursor: pointer;
+            }
+            .productoModal{
+                display: flex;
+                .galeriaImg{
+                    ul{
+                        li{
+                            width: 50px;
+                                height: 50px;
+                            list-style: none;
+                            border: 1px solid rgba(0, 0, 0, 0.5);
+                            margin: 10px;
+                            img{
+                                width: 100%;
+                                height: 100%;
+                                margin: 0;
+                                padding: 0;
+                            }
+                        }
+                    }
+                }
+                .sale{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    margin: -25px 0rem 0rem 300px;
+                    position: absolute;
+                    z-index: 1;
+                    p{
+                        position: absolute;
+                        margin-top: 15px;
+                        font-size: 12px;
+                        font-weight: 600;
+                        color: $color-text-3;
+                    }
+                    img{
+                        width: 50px;
+                        height: 50px;
+                    }
+                }
+                .cuerpo{                        
+                    width: 100%;
+                    height: 380px;
+                    position: relative;
+                    max-width: 300px;
+                    overflow: hidden;                    
+                    .btnsCambiar{ 
+                        position: absolute;
+                        width: 90%;
+                        height: 100%;
+                        margin: 0px 12px;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        z-index: 1;
+                        .FlechaImgizquierda{      
+                            font-size: 50px;
+                            color: $color-text-1;                                    
+                        }
+                        .FlechaImgizquierda:hover{
+                            cursor: pointer;
+                            transition: .1s;
+                            transform: scale(1.5);
+                        }
+                        .FlechaImgDerecha{
+                            font-size: 50px;
+                            color: $color-text-1;
+                        }
+                        .FlechaImgDerecha:hover{
+                            cursor: pointer;
+                            transition: .1s;
+                            transform: scale(1.5);
+                        }
+                    }
+                    .imgProducto{
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        display: block;
+                    }
+                }
+                .content_info{
+                    width: 60%;
+                    display: flex;
+                    flex-direction: column;
+                    padding: 10px;
+                    .titulo{
+                        width: 100%;
+                        h3{
+                            text-align: left;
+                            font-family: arimo;
+                            font-size: 40px;
+                            color: $color-text-3;
+                            span{
+                                margin-left: 10px;
+                                padding: .3125rem;
+                                border-radius: .125rem;
+                                font-family: arimo;
+                                font-size: 16px;
+                                color: $color-text-1;
+                                background-color: red;
+                            }
+                        }                     
+                        p{
+                            margin: 15px 0px 10px 0px;
+                            text-align: left;
+                            font-family: arimo;
+                            font-size: 25px;
+                            color: $color-text-3;
+                        }
+                        ul{
+                            display: flex;
+                            align-items: center;
+                            li{
+                                list-style: none;
+                                img{
+                                    margin: 2px;
+                                }
+                            }
+                            a{
+                                text-decoration: underline;
+                                font-family: montserrat;
+                                font-size: 16px;
+                                color: $color-text-4;
+                                margin: auto 5px;
+                            }
+                        }
+                    }
+                    .precio_descuento{
+                        p{
+                            font-family: montserrat;
+                            font-size: 1.25rem;
+                            font-weight: 600;
+                            color: $color-text-3;
+                        }                        
+                    }
+                    .precio{
+                        p{
+                            font-family: montserrat;
+                            font-size: 1rem;
+                            font-weight: 600;
+                            color: rgba(0,0,0,.5);
+                            text-decoration: line-through;
+                        }
+                    }
+                    .tallas{
+                        display: flex;
+                        input{
+                            display: none;
+                        }
+                        label{
+                            margin: 2px;
+                            padding: 5px;
+                            border: 1px solid $bg-3;
+                            border-radius: 5px;
+                        }
+                        .labelTalla{
+                            border: 1px solid $bg-1;
+                            color: $color-text-1;
+                            background-color: $bg-4;
+                        }
+                        label:hover{
+                            cursor: pointer;
+                            border: 1px solid $bg-1;
+                            color: $color-text-1;
+                            background-color: $bg-2;
+                        }
+                    }
+                    .cantidad {
+                        margin: 10px 0px;
+                        display: flex;
+                        flex-direction: column;
+                        .btns-cantidad{
+                            display: flex;
+                            align-items: center;
+                            input[type="number"] {
+                                -webkit-appearance: textfield;
+                                appearance: textfield;
+                                position: relative;
+                                width: 60px;
+                                height: 30px;
+                                margin: 0rem;
+                                padding: 5px 25px 5px 5px;
+                                font-family: arimo;
+                                font-size: 18px;
+                                height: 30px;
+                                text-align: center;
+                                border: 1px solid $color-text-3;
+                                outline: none;
+                            }
+                            input[type="number"]::-webkit-inner-spin-button,
+                            input[type="number"]::-webkit-outer-spin-button {
+                                -webkit-appearance: none;
+                                margin: 0;
+                                opacity: 1;
+                                width: 50px;
+                                position: absolute;
+                                top: 0;
+                                right: 0;
+                                height: 100%;
+                            }
+                            .increment {
+                                width: 30px;
+                                height: 30px;
+                                margin: 0rem;
+                                font-family: Montserrat;
+                                font-size: 20px;
+                                font-weight: 600;
+                                color: $color-text-1;
+                                background-color: $color-text-3;
+                                border: none;
+                            }
+                            .decrement {
+                                width: 30px;
+                                height: 30px;
+                                margin: 0rem;
+                                font-family: Montserrat;
+                                font-size: 20px;
+                                font-weight: 600;
+                                color: $color-text-1;
+                                background-color: $color-text-3;
+                                border: none;
+                            }
+                        }
+                        p{
+                            font-family: arimo;
+                            font-size: 16px;
+                            color: $color-text-3;
+                        }
+                    }  
+                    .btns{
+                        display: flex;
+                        align-items: center;
+                        .btnAction{
+                            margin: 10px 0px;
+                            display: flex;
+                            .btnAdd{
+                                width: 200px;
+                                height: 40px;
+                                padding: 10px 10px;
+                                text-align: center;
+                                font-family: Montserrat;
+                                font-size: 1rem;
+                                font-weight: 600;
+                                text-decoration: none;
+                                color: $color-text-1;
+                                background-color: $bg-4;
+                                border-style: none;
+                                border-radius: .3125rem;
+                            }
+                            .btnAdd:hover{
+                                cursor: pointer;
+                                transition: 0.2s;
+                                transform: scale(1.05);
+                            }
+                            img{
+                                width: 24px;
+                                height: 24px;
+                                margin: 6px;
+                            }
+                        }
+                        .btnFavorito{
+                            margin-left: 10px;
+                            img{
+                                transition: .5s;
+                            }
+                            img:hover{
+                                cursor: pointer;
+                                transition: 5s;
+                                transform: scale(1.1);
+                            }
+                        }
                     }
                 }
             }

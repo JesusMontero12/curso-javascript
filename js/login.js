@@ -1,3 +1,3 @@
-import { mostrarNotificaciones } from './modulos/animationHeader.js';
+import { mostrarNotificaciones } from './modulos/animaciones.js';
 
 mostrarNotificaciones();
