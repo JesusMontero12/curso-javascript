@@ -12,7 +12,6 @@ export function loMasVendido() {
   .then((data) => {
     data.forEach((producto) => {
     //validamos si el producto tiene mas de 60 ventas concretadas
-    console.log(data);
       const masVendidos = producto.cntVendido >= 60;
 
       if (masVendidos) {
@@ -77,12 +76,13 @@ export function loMasVendido() {
 
 //Trae todos los elementos para la tienda
 export function todoslosproductos() {
-  const urlJSON = "../data/data.json";
+  const urlJSON = "../../data/data.json";
   const aggProductos = document.getElementById("productos");
   const parametro = new URLSearchParams(window.location.search);
   const categoria = parametro.get('categoria');
   const btnAdd = document.getElementById('btnAdd');
   let i = 0;
+
 
   if (categoria == null) {
     fetch(urlJSON)
