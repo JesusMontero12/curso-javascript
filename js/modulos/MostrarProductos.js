@@ -1,10 +1,10 @@
 //importamos funcion de la burbuja de notificaciones de la bolsa
 import { animacionTallas } from "./animaciones.js";
-const urlJSON = "./data/data.json";
 import { VentanaModalProductos } from './ventanasModales.js';
 
 //Mostramos los prodcutos mas vendidos
 export function loMasVendido() {
+  const urlJSON = "./data/data.json";
   const aggProductos = document.getElementById("productos");
   //solicitud para obtener json
   fetch(urlJSON)
@@ -77,6 +77,7 @@ export function loMasVendido() {
 
 //Trae todos los elementos para la tienda
 export function todoslosproductos() {
+  const urlJSON = "./data/data.json";
   const aggProductos = document.getElementById("productos");
   const parametro = new URLSearchParams(window.location.search);
   const categoria = parametro.get('categoria');
