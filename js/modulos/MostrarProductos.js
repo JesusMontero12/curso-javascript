@@ -77,7 +77,7 @@ export function loMasVendido() {
 
 //Trae todos los elementos para la tienda
 export function todoslosproductos() {
-  const urlJSON = "./data/data.json";
+  const urlJSON = "../data/data.json";
   const aggProductos = document.getElementById("productos");
   const parametro = new URLSearchParams(window.location.search);
   const categoria = parametro.get('categoria');
