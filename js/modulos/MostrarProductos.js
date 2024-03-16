@@ -1,6 +1,6 @@
 //importamos funcion de la burbuja de notificaciones de la bolsa
 import { animacionTallas } from "./animaciones.js";
-const urlJSON = "../data/data.json";
+const urlJSON = "./data/data.json";
 import { VentanaModalProductos } from './ventanasModales.js';
 
 //Mostramos los prodcutos mas vendidos
