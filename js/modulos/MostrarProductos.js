@@ -1,6 +1,6 @@
 //importamos funcion de la burbuja de notificaciones de la bolsa
 import { animacionTallas } from "./animaciones.js";
-const urlJSON = "../../data/data.json";
+const urlJSON = "../data/data.json";
 import { VentanaModalProductos } from './ventanasModales.js';
 
 //Mostramos los prodcutos mas vendidos
@@ -12,6 +12,7 @@ export function loMasVendido() {
   .then((data) => {
     data.forEach((producto) => {
     //validamos si el producto tiene mas de 60 ventas concretadas
+    console.log(data);
       const masVendidos = producto.cntVendido >= 60;
 
       if (masVendidos) {
@@ -231,7 +232,6 @@ export function mostrarProductosBag() {
   if (productos.length == 0) {
     listProductos.innerHTML = `<p>No tienes ningun producto agregado a la bolsa.<p>`;
   } else {      
-    
     //recorremos todos los productos del localStorage
     productos.forEach((producto) => {
       //variables y funciones para mostrar los productos de manera dinamica
@@ -239,12 +239,12 @@ export function mostrarProductosBag() {
       const elementoDescuento = crearElementoDescuento(producto.descuento);
       const precioDesc = calcularPrecioDescuento(producto.precio, producto.descuento);
       const totalProdCant = calcularTotalProductoCantidad(producto.cantAgg, precioDesc);
+      
 
       document.addEventListener('DOMContentLoaded', function () {
         let tallaProducto = producto.talla;
         const inputs = document.getElementsByName(`talla_${producto.id}`);
-        
-        
+
         for (let i = 0; i < inputs.length; i++) {
             const input = inputs[i];
             const label = input.nextElementSibling; 
@@ -252,10 +252,26 @@ export function mostrarProductosBag() {
             if (input.value === tallaProducto) {
               input.checked = true;
               label.classList.toggle("labelTalla");
-              // animacionTallas();
-          } else {
-              input.checked = false;
-          }
+            } else {
+                input.checked = false;
+            }   
+            
+            label.addEventListener('click', function () {
+              const allLabels = document.querySelectorAll('.tallaLabel');
+              allLabels.forEach(otherLabel => { 
+                if (otherLabel !== this) {
+                    otherLabel.classList.remove("labelTalla");
+                      for (let i = 0; i < inputs.length; i++) {
+                        const otherInput = inputs[i];
+                        if (otherInput !== label) {
+                            otherInput.checked = false;
+                            otherInput.nextElementSibling.classList.remove("labelTalla");
+                        }                        
+                    }
+                }
+                label.classList.toggle("labelTalla");
+              });
+            });
         }
       });
       
@@ -320,27 +336,27 @@ export function mostrarProductosBag() {
               <form class="tallas">
                   <div class="talla">
                       <input id="u" type="checkbox" name="talla_${producto.id}" value="u">
-                      <label for="u" id="TallaU">U</label>
+                      <label class="tallaLabel" for="u" id="TallaU">U</label>
                       </div>
                       <div class="talla">
                       <input id="s" type="checkbox" name="talla_${producto.id}" value="s">
-                      <label for="s" id="TallaS">S</label>
+                      <label class="tallaLabel" for="s" id="TallaS">S</label>
                       </div>
                       <div class="talla">
                       <input id="m" type="checkbox" name="talla_${producto.id}" value="m">
-                      <label for="m" id="TallaM">M</label>
+                      <label class="tallaLabel" for="m" id="TallaM">M</label>
                       </div>
                       <div class="talla">
                       <input id="l" type="checkbox" name="talla_${producto.id}" value="l">
-                      <label for="l" id="TallaL">L</label>
+                      <label class="tallaLabel" for="l" id="TallaL">L</label>
                       </div>
                       <div class="talla">
                       <input id="xl" type="checkbox" name="talla_${producto.id}" value="xl">
-                      <label for="xl" id="TallaXL">XL</label>
+                      <label class="tallaLabel" for="xl" id="TallaXL">XL</label>
                       </div>
                       <div class="talla">
                       <input id="xxl" type="checkbox" name="talla_${producto.id}" value="xxl">
-                      <label for="xxl" id="TallaXXL">XXL</label>
+                      <label class="tallaLabel" for="xxl" id="TallaXXL">XXL</label>
                   </div>
               </form>
           </div>

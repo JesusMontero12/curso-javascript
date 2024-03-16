@@ -32,11 +32,12 @@ export function mostrarNotificaciones() {
     });
 }
 
-export function animacionTallas() {
+export function animacionTallas(label) {
     const checkboxes = document.querySelectorAll('.talla input[type="checkbox"]');
     checkboxes.forEach(checkbox => {
         checkbox.addEventListener('click', function() {
             this.nextElementSibling.classList.toggle("labelTalla");
+            label.classList.toggle("labelTalla"); // agrega estilo en la modal del bag
             checkboxes.forEach(otherCheckbox => {
                 if (otherCheckbox !== this) {
                     otherCheckbox.checked = false;

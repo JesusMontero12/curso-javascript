@@ -1323,9 +1323,6 @@ main .mi_bolsa .content_productos .productos .grid .content_info .tallas {
   display: flex;
   margin-top: 15px;
 }
-main .mi_bolsa .content_productos .productos .grid .content_info .tallas input {
-  display: none;
-}
 main .mi_bolsa .content_productos .productos .grid .content_info .tallas label {
   margin: 2px;
   padding: 5px;
