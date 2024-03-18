@@ -76,7 +76,7 @@ export function loMasVendido() {
 
 //Trae todos los elementos para la tienda
 export function todoslosproductos() {
-  const urlJSON = "../../data/data.json";
+  const urlJSON = "../data/data.json";
   const aggProductos = document.getElementById("productos");
   const parametro = new URLSearchParams(window.location.search);
   const categoria = parametro.get('categoria');
@@ -331,7 +331,7 @@ export function mostrarProductosBag() {
               </div>
               <div class="cantidad">
                   <button class="decrement">-</button>
-                  <input type="number" class="cantidad-input" min="1" max="5" step="1" value="${producto.cantAgg}">
+                  <input type="number" name="cantidadProducto" class="cantidad-input" min="1" max="5" step="1" value="${producto.cantAgg}">
                   <button class="increment">+</button>
               </div>
               <form class="tallas">
@@ -467,7 +467,7 @@ export function mostrarProductosBag() {
       total.innerHTML = `    
           <div class="headerDetalle">
             <h4>Detalle de la compra</h4>
-            <label>Tienes ${CantidadProductos} productos agregados a la bolsa</label>
+            <div>Tienes ${CantidadProductos} productos agregados a la bolsa</div>
           </diV>
           <div class="detalle">
             <h5 id="subtotal">Sub-total: </h5>
@@ -532,6 +532,7 @@ export function productoDetalle() {
   const cardProducto = document.getElementById('productos');
   const parametro = new URLSearchParams(window.location.search);
   const idProducto = parametro.get('producto');
+  const urlJSON = "../data/data.json";
 
   if (idProducto == null) {
     cardProducto.innerHTML = `
