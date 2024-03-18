@@ -52,6 +52,7 @@ export function VentanaModalProductos(producto, sale) {
     // Elementos para el carrusel
     const btnAnterior = document.getElementById(`anterior_${producto.id}`);
     const btnSiguiente = document.getElementById(`siguiente_${producto.id}`);
+    console.log(`.${producto.imagen}`);
     cambiarImagen(btnSiguiente, btnAnterior, producto.imagen, i, producto.id);
     animacionTallas();
 
@@ -66,7 +67,7 @@ export function VentanaModalProductos(producto, sale) {
             const imagenClickeada = e.target;
             const indiceImagen = Array.from(imagenClickeada.parentNode.parentNode.children).indexOf(imagenClickeada.parentNode); 
             const imagenGrande = document.getElementById(`img_${producto.id}`);
-            imagenGrande.src = `../${producto.imagen[indiceImagen]}`;
+            imagenGrande.src = `${producto.imagen[indiceImagen]}`;
         });
     });
     
